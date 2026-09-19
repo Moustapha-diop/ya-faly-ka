@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YA FALY KA | Mobilier d'Excellence, Électroménager, Literie & Confort - Grand Mbao</title>
+  <meta name="description" content="Magasin YA FALY KA à Grand Mbao, Cité Baye Niasse. Vente de fauteuils de bureau ergonomiques, chaises de luxe velours & or, ventilateurs grande puissance, valises de voyage, matelas orthopédiques et chaises de réception.">
+  <meta name="keywords" content="YA FALY KA, Grand Mbao, Cité Baye Niasse, mobilier Dakar, chaise bureau, ventilateur, matelas, valises voyage, chaises événementielles">
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Canvas Confetti for Checkout Celebrations -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-glow">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+  </div>
+
+  <!-- Top Announcement Bar with Live Store Status -->
+  <aside class="top-announcement" aria-label="Annonces du magasin">
+    <div class="container announcement-inner">
+      <div class="ticker-text">
+        <span class="ticker-badge">Nouveautés</span>
+        <span>Arrivage exclusif : Mobilier de direction, chaises de réception et ventilateurs en stock immédiat !</span>
+      </div>
+      <div class="announcement-right">
+        <div class="store-status-pill" id="storeLiveStatus">
+          <span class="status-pulse-dot"></span>
+          <span id="storeStatusLabel">Magasin Ouvert • Grand Mbao (08h30 - 22h30)</span>
+        </div>
+        <a href="tel:+221785645767" class="announcement-link">
+          <i data-lucide="phone" style="width:14px;height:14px;"></i>
+          <span>+221 78 564 57 67</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Luxury Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" id="brandLogo">
+        <div class="logo-icon-wrap">YF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">YA FALY KA</span>
+          <span class="brand-sub">Grand Mbao • Mobilier & Confort</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav aria-label="Menu principal">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Accueil</a></li>
+          <li><a href="#catalogue" class="nav-link">Rayons</a></li>
+          <li><a href="#delivery" class="nav-link">Livraison</a></li>
+          <li><a href="#contact" class="nav-link">Accès & Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Search, Theme, Cart, WhatsApp) -->
+      <div class="nav-actions">
+        <!-- Quick Search Key Trigger -->
+        <button class="icon-btn search-trigger-btn" id="openSearchPaletteBtn" title="Recherche rapide (Ctrl + K)" aria-label="Recherche">
+          <i data-lucide="search" style="width:18px;height:18px;"></i>
+          <span class="kbd-badge">Ctrl K</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="icon-btn" id="themeToggleBtn" title="Basculer le thème (Sombre / Clair)" aria-label="Basculer le thème">
+          <i data-lucide="sun" id="themeIcon" style="width:19px;height:19px;"></i>
+        </button>
+
+        <!-- Compare Drawer Trigger -->
+        <button class="icon-btn" id="compareTriggerBtn" title="Voir les articles à comparer" style="display:none;" aria-label="Comparateur">
+          <i data-lucide="columns" style="width:19px;height:19px;"></i>
+          <span class="cart-badge" id="compareBadge" style="background:#38bdf8;color:#07090e;">0</span>
+        </button>
+
+        <!-- Cart Drawer Trigger (Hidden in direct WhatsApp discussion mode) -->
+        <button class="icon-btn" id="cartTriggerBtn" title="Voir le panier" style="display:none;" aria-label="Panier d'achats">
+          <i data-lucide="shopping-bag" style="width:19px;height:19px;"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+
+        <!-- Direct WhatsApp CTA -->
+        <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20vous%20contacte%20depuis%20votre%20site%20internet." target="_blank" rel="noopener noreferrer" class="btn-nav-whatsapp" id="navWhatsappBtn">
+          <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+          <span>WhatsApp VIP</span>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu mobile">
+          <i data-lucide="menu" style="width:22px;height:22px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <!-- Hero Text Content -->
+        <div class="hero-content">
+          <div class="hero-tag">
+            <i data-lucide="sparkles" style="width:16px;height:16px;"></i>
+            <span>Boutique de Référence • Grand Mbao, Cité Baye Niasse</span>
+          </div>
+
+          <h1 class="hero-title">
+            L'Excellence du Mobilier & des Équipements chez <span class="gold-gradient-text">YA FALY KA</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Fauteuils exécutifs de direction, chaises de réception velours & pieds dorés, ventilateurs numériques ultra-puissants, sets de valises et literie royale. Qualité certifiée et prix direct magasin.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#catalogue" class="btn-primary" id="heroExploreBtn">
+              <span>Découvrir le Catalogue</span>
+              <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
+            </a>
+
+            <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20souhaite%20des%20informations%20sur%20vos%20articles." target="_blank" rel="noopener noreferrer" class="btn-secondary" id="heroWhatsappBtn">
+              <i data-lucide="message-circle" style="color:var(--whatsapp-color);width:18px;height:18px;"></i>
+              <span>Discuter sur WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Hero Trust Stats -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">+10 000</span>
+              <span class="stat-label">Clients Comblés</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Stock Réel Disponible</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">08h-22h30</span>
+              <span class="stat-label">Ouvert 7j / 7</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">1h - 24h</span>
+              <span class="stat-label">Livraison Dakar Express</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase with Interactive Hotspots -->
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <img src="assets/images/hero_showroom.jpg" alt="Showroom moderne YA FALY KA" class="hero-main-img" id="heroShowroomImg">
+            <div class="hero-image-overlay"></div>
+
+            <!-- Interactive Hotspots on Showroom Image -->
+            <div class="hotspot hotspot-1" data-target="yfk-mob-01" title="Fauteuil de Bureau Chrome">
+              <span class="hotspot-pulse"></span>
+              <span class="hotspot-label">Siège Exécutif Chrome</span>
+            </div>
+            <div class="hotspot hotspot-2" data-target="yfk-mob-02" title="Chaises Velours & Or">
+              <span class="hotspot-pulse"></span>
+              <span class="hotspot-label">Chaises Velours & Or</span>
+            </div>
+            <div class="hotspot hotspot-3" data-target="yfk-bag-01" title="Valises de Voyage">
+              <span class="hotspot-pulse"></span>
+              <span class="hotspot-label">Valises 360°</span>
+            </div>
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="floating-badge badge-top">
+            <div class="floating-icon">
+              <i data-lucide="award" style="width:20px;height:20px;"></i>
+            </div>
+            <div class="floating-text-wrap">
+              <span class="floating-title">Qualité Magasin Certifiée</span>
+              <span class="floating-sub">Acier chromé & velours soyeux</span>
+            </div>
+          </div>
+
+          <div class="floating-badge badge-bottom">
+            <div class="floating-icon" style="background:linear-gradient(135deg, #10b981, #059669); color:#fff;">
+              <i data-lucide="truck" style="width:20px;height:20px;"></i>
+            </div>
+            <div class="floating-text-wrap">
+              <span class="floating-title">Expédition Express</span>
+              <span class="floating-sub">Départ immédiat depuis Grand Mbao</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST & KEY ADVANTAGES BAR -->
+    <section class="features-section" id="services">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon-wrap">
+              <i data-lucide="shield-check" style="width:24px;height:24px;"></i>
+            </div>
+            <div class="feature-content">
+              <h4>Garantie & Authenticité</h4>
+              <p>Articles neufs sous emballage d'origine contrôlés avant chaque livraison.</p>
+            </div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrap">
+              <i data-lucide="badge-percent" style="width:24px;height:24px;"></i>
+            </div>
+            <div class="feature-content">
+              <h4>Tarifs Direct Magasin</h4>
+              <p>Vente au détail et conditions avantageuses pour les commandes en gros.</p>
+            </div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrap">
+              <i data-lucide="file-check" style="width:24px;height:24px;"></i>
+            </div>
+            <div class="feature-content">
+              <h4>Devis Proforma Instantané</h4>
+              <p>Générez votre facture proforma prête pour impression ou envoi officiel.</p>
+            </div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrap">
+              <i data-lucide="clock" style="width:24px;height:24px;"></i>
+            </div>
+            <div class="feature-content">
+              <h4>Horaires Élargis 7j/7</h4>
+              <p>Accueil en boutique et assistance WhatsApp continue de 08h30 à 22h30.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- CATALOG SECTION -->
+    <section class="catalog-section" id="catalogue">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-badge">
+            <i data-lucide="layers" style="width:16px;height:16px;"></i>
+            Rayons & Articles Disponibles
+          </span>
+          <h2 class="section-title">Catalogue Officiel YA FALY KA</h2>
+          <p class="section-desc">Consultez nos articles réels, inspectez les détails en haute résolution et commandez directement en ligne ou sur WhatsApp.</p>
+        </div>
+
+        <!-- Controls: Search, View Mode, Sort and Category Pills -->
+        <div class="catalog-controls">
+          <div class="search-and-sort-row">
+            <!-- Search Box -->
+            <div class="search-box-wrap">
+              <i data-lucide="search" class="search-icon" style="width:18px;height:18px;"></i>
+              <input type="text" id="searchInput" class="search-input" placeholder="Rechercher une chaise, ventilateur, matelas, valise, baignoire bébé...">
+              <button class="search-clear-btn" id="searchClearBtn" style="display:none;" aria-label="Effacer la recherche">
+                <i data-lucide="x" style="width:16px;height:16px;"></i>
+              </button>
+            </div>
+
+            <!-- View Toggle & Sort By -->
+            <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+              <div class="view-toggle-wrap">
+                <button class="view-btn active" id="viewGridBtn" title="Affichage Grille 3D" aria-label="Vue grille">
+                  <i data-lucide="layout-grid" style="width:18px;height:18px;"></i>
+                </button>
+                <button class="view-btn" id="viewListBtn" title="Affichage Liste Détaillée" aria-label="Vue liste">
+                  <i data-lucide="list" style="width:18px;height:18px;"></i>
+                </button>
+              </div>
+
+              <div class="sort-select-wrap">
+                <label for="sortSelect" class="sort-label">Trier :</label>
+                <select id="sortSelect" class="sort-select">
+                  <option value="featured">Recommandés / Populaires</option>
+                  <option value="name-asc">Nom de l'article (A - Z)</option>
+                  <option value="rating">Meilleures évaluations</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="category-pills" id="categoryPillsContainer">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- Products Grid Container -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- DELIVERY ZONE CALCULATOR -->
+    <section class="delivery-section" id="delivery">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">
+            <i data-lucide="truck" style="width:16px;height:16px;"></i>
+            Logistique Rapide
+          </span>
+          <h2 class="section-title">Calculateur de Livraison Express à Domicile</h2>
+          <p class="section-desc">Départ immédiat depuis notre magasin situé à Grand Mbao, Cité Baye Niasse vers tout Dakar et l'intérieur du pays.</p>
+        </div>
+
+        <div class="delivery-calc-grid">
+          <div class="delivery-selector-card">
+            <h3 style="font-size:1.25rem;margin-bottom:1.2rem;color:var(--text-primary);">Choisissez votre zone géographique :</h3>
+            
+            <div class="zone-buttons" id="deliveryZoneButtons">
+              <button class="zone-btn active" data-zone="mbao">
+                <strong>Grand Mbao / Cité Baye Niasse</strong>
+                <small>Zone Ultra-Locale (Moins de 1h)</small>
+              </button>
+              <button class="zone-btn" data-zone="banlieue">
+                <strong>Keur Massar • Rufisque • Pikine • Guédiawaye</strong>
+                <small>Banlieue Proche (2h à 4h)</small>
+              </button>
+              <button class="zone-btn" data-zone="dakar">
+                <strong>Dakar Centre • Almadies • Plateau • Maristes</strong>
+                <small>Dakar Ville (Livraison sous 24h)</small>
+              </button>
+              <button class="zone-btn" data-zone="regions">
+                <strong>Régions (Thiès, Mbour, Saint-Louis, Kaolack...)</strong>
+                <small>Expédition transporteur sécurisé</small>
+              </button>
+            </div>
+          </div>
+
+          <div class="delivery-result-card" id="deliveryResultCard">
+            <div class="delivery-icon-big">
+              <i data-lucide="navigation" style="width:36px;height:36px;color:var(--accent-gold);"></i>
+            </div>
+            <h4 id="deliveryZoneTitle" style="font-size:1.35rem;margin-bottom:0.5rem;">Grand Mbao, Cité Baye Niasse</h4>
+            <div class="delivery-price-tag" id="deliveryCostDisplay">Livraison Gratuite / 1 000 FCFA</div>
+            <p id="deliveryTimeDisplay" style="color:var(--text-secondary);margin:0.8rem 0 1.4rem;">Délai estimé : 30 à 60 minutes dès validation</p>
+            <div class="delivery-perks">
+              <div class="perk-item"><i data-lucide="check" style="width:16px;height:16px;color:var(--accent-emerald);"></i><span>Paiement à la livraison possible</span></div>
+              <div class="perk-item"><i data-lucide="check" style="width:16px;height:16px;color:var(--accent-emerald);"></i><span>Vérification du colis avant paiement</span></div>
+              <div class="perk-item"><i data-lucide="check" style="width:16px;height:16px;color:var(--accent-emerald);"></i><span>Aide au déchargement par notre livreur</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL STORE & GALLERY SECTION -->
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">
+            <i data-lucide="camera" style="width:16px;height:16px;"></i>
+            Visite Immersive
+          </span>
+          <h2 class="section-title">Notre Magasin à Grand Mbao</h2>
+          <p class="section-desc">Découvrez l'ambiance et la réalité de nos rayons : nos stocks sont réels, neufs et prêts à être emportés ou livrés immédiatement.</p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & STORE VISIT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">
+            <i data-lucide="map-pin" style="width:16px;height:16px;"></i>
+            Localisation & Accès
+          </span>
+          <h2 class="section-title">Passez Nous Voir au Magasin</h2>
+          <p class="section-desc">Nous vous accueillons tous les jours sans interruption pour vous conseiller et vous faire essayer nos modèles.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Store Info Cards -->
+          <div class="contact-card">
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i data-lucide="map-pin" style="width:24px;height:24px;"></i>
+              </div>
+              <div class="contact-item-text">
+                <h4>Adresse Exacte</h4>
+                <p id="storeAddressDisplay">Grand Mbao, Cité Baye Niasse (Dakar, Sénégal)</p>
+                <p style="font-size:0.85rem;color:var(--accent-gold);margin-top:0.25rem;">Facile d'accès, parking disponible pour chargement</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i data-lucide="clock" style="width:24px;height:24px;"></i>
+              </div>
+              <div class="contact-item-text">
+                <h4>Horaires d'Ouverture</h4>
+                <p id="storeHoursDisplay">Tous les jours : 08h30 - 22h30</p>
+                <p style="font-size:0.85rem;color:var(--accent-emerald);">Service continu même le dimanche et jours fériés</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i data-lucide="phone-call" style="width:24px;height:24px;"></i>
+              </div>
+              <div class="contact-item-text">
+                <h4>Ligne Directe & WhatsApp</h4>
+                <p id="storePhoneDisplay">+221 78 564 57 67</p>
+                <p style="font-size:0.8rem;color:var(--text-muted);">Assistance téléphonique & messages 24h/7</p>
+              </div>
+            </div>
+
+            <!-- GPS / Route WhatsApp Action -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1.2rem;">
+              <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20veuillez%20m'envoyer%20la%20localisation%20GPS%20du%20magasin%20%C3%A0%20Grand%20Mbao." target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.8rem 1rem;font-size:0.9rem;">
+                <i data-lucide="navigation" style="width:16px;height:16px;"></i>
+                <span>Localisation GPS</span>
+              </a>
+              <a href="tel:+221785645767" class="btn-secondary" style="padding:0.8rem 1rem;font-size:0.9rem;">
+                <i data-lucide="phone" style="width:16px;height:16px;"></i>
+                <span>Appeler Direct</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Interactive Message / VIP Order Form -->
+          <div class="contact-card">
+            <h3 style="font-size:1.35rem;margin-bottom:1.2rem;color:var(--text-primary);">Envoyer une Demande Directe</h3>
+            <form id="contactForm" class="contact-form-wrap">
+              <div class="form-group">
+                <label for="clientName">Votre Nom Complet</label>
+                <input type="text" id="clientName" class="form-input" placeholder="Ex: Amadou Diallo" required>
+              </div>
+              <div class="form-group">
+                <label for="clientPhone">Numéro de Téléphone (WhatsApp)</label>
+                <input type="tel" id="clientPhone" class="form-input" placeholder="Ex: +221 77 123 45 67" required>
+              </div>
+              <div class="form-group">
+                <label for="clientMsg">Votre besoin spécifique</label>
+                <textarea id="clientMsg" class="form-textarea" placeholder="Indiquez les articles recherchés (ex: 6 chaises velours or, 2 ventilateurs, matelas 180x200...) ou votre question..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="border:none;">
+                <i data-lucide="send" style="width:18px;height:18px;"></i>
+                <span>Envoyer sur WhatsApp Immédiatement</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom:1rem;">
+            <div class="logo-icon-wrap">YF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-name" style="font-size:1.3rem;">YA FALY KA</span>
+              <span class="brand-sub">Grand Mbao, Cité Baye Niasse</span>
+            </div>
+          </div>
+          <p style="font-size:0.9rem;line-height:1.6;margin-bottom:1.4rem;">
+            Le choix privilégié pour meubler et équiper vos espaces avec raffinement, robustesse et au tarif le plus juste de la région.
+          </p>
+          <div style="display:flex;gap:0.75rem;">
+            <a href="#" class="icon-btn" aria-label="Facebook"><i data-lucide="facebook" style="width:18px;height:18px;"></i></a>
+            <a href="#" class="icon-btn" aria-label="Instagram"><i data-lucide="instagram" style="width:18px;height:18px;"></i></a>
+            <a href="https://wa.me/221785645767" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="WhatsApp"><i data-lucide="message-circle" style="width:18px;height:18px;color:var(--whatsapp-color);"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Rayons -->
+        <div class="footer-col">
+          <h4>Rayons Phares</h4>
+          <ul class="footer-links">
+            <li><a href="#catalogue" class="footer-link">Fauteuils Exécutifs Chrome</a></li>
+            <li><a href="#catalogue" class="footer-link">Chaises Velours & Or</a></li>
+            <li><a href="#catalogue" class="footer-link">Ventilateurs Numériques</a></li>
+            <li><a href="#catalogue" class="footer-link">Sets de Valises Voyage</a></li>
+            <li><a href="#catalogue" class="footer-link">Matelas Orthopédiques</a></li>
+            <li><a href="#catalogue" class="footer-link">Chaises Événements Monobloc</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Liens & Services -->
+        <div class="footer-col">
+          <h4>Services Interactifs</h4>
+            <li><a href="#catalogue" class="footer-link">Catalogue & Articles</a></li>
+            <li><a href="#delivery" class="footer-link">Calculateur de Livraison</a></li>
+            <li><a href="https://wa.me/221785645767" target="_blank" rel="noopener noreferrer" class="footer-link">Discuter sur WhatsApp (+221 78 564 57 67)</a></li>
+            <li><a href="#contact" class="footer-link">Itinéraire vers Grand Mbao</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Coordonnées -->
+        <div class="footer-col">
+          <h4>Coordonnées Magasin</h4>
+          <p class="footer-contact-item">
+            <span class="footer-contact-label">Adresse :</span>
+            <span class="footer-contact-val">Grand Mbao, Cité Baye Niasse</span>
+          </p>
+          <p class="footer-contact-item">
+            <span class="footer-contact-label">Téléphone :</span>
+            <a href="tel:+221785645767" class="footer-contact-val footer-phone-link">+221 78 564 57 67</a>
+          </p>
+          <p class="footer-contact-item">
+            <span class="footer-contact-label">Horaires :</span>
+            <span class="footer-contact-val">08h30 – 22h30 (7j/7)</span>
+          </p>
+          <p class="footer-contact-item" style="margin-bottom:1.2rem;">
+            <span class="footer-contact-label">Moyens de Paiement :</span>
+            <span class="footer-contact-val">Espèces, Wave, Orange Money</span>
+          </p>
+          <div class="footer-trust-badge">
+            <i data-lucide="shield-check" style="width:18px;height:18px;flex-shrink:0;color:var(--accent-gold);"></i>
+            <span>Satisfait ou échangé sous 48h à Grand Mbao</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <strong style="color:#ffffff;">YA FALY KA</strong>. Tous droits réservés.</p>
+        <p class="footer-made-with">Site interactif ultra-haute performance conçu pour sublimer votre magasin.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL: QUICK VIEW PRODUIT AVEC LOUPE & VARIANTES
+       ========================================================================== -->
+  <div class="modal-backdrop" id="quickViewModal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Fermer la fenêtre">
+        <i data-lucide="x" style="width:20px;height:20px;"></i>
+      </button>
+
+      <div class="modal-grid">
+        <!-- Visuals Showcase with Zoom Lens -->
+        <div class="modal-image-showcase">
+          <div class="modal-main-img-wrap" id="modalZoomWrapper">
+            <img src="" alt="Photo Produit" id="modalMainImg" class="modal-main-img">
+            <div class="zoom-lens-indicator" id="zoomLens"></div>
+          </div>
+          <div class="modal-photo-switch">
+            <button class="switch-thumb-btn active" id="modalThumbStudio" title="Vue Studio Professionnelle">
+              <img src="" alt="Vue Studio" id="modalThumbStudioImg">
+              <span class="thumb-label">Studio HD</span>
+            </button>
+            <button class="switch-thumb-btn" id="modalThumbStore" title="Photo Réelle du Magasin à Grand Mbao">
+              <img src="" alt="Vue Réelle Magasin" id="modalThumbStoreImg">
+              <span class="thumb-label">Magasin</span>
+            </button>
+          </div>
+          <span style="font-size:0.75rem;color:var(--text-muted);text-align:center;">
+            Survolez l'image pour activer la loupe haute précision.
+          </span>
+        </div>
+
+        <!-- Details -->
+        <div class="modal-details">
+          <span class="modal-cat-tag" id="modalCategory">Catégorie</span>
+          <h2 class="modal-title" id="modalTitle">Nom de l'article</h2>
+
+          <div class="modal-inquiry-box">
+            <span class="modal-inquiry-pill">
+              <i data-lucide="sparkles" style="width:16px;height:16px;"></i>
+              <span>Tarif Direct Magasin • Devis & Disponibilité sur WhatsApp</span>
+            </span>
+          </div>
+
+          <div class="modal-stock-badge" id="modalStockBadge">
+            <i data-lucide="check-circle-2" style="width:16px;height:16px;"></i>
+            <span id="modalStockText">En stock à Grand Mbao (Livraison immédiate)</span>
+          </div>
+
+          <p class="modal-desc" id="modalDesc">Description complète...</p>
+
+          <h4 style="font-size:0.9rem;margin-bottom:0.6rem;color:var(--text-primary);">Caractéristiques & Atouts :</h4>
+          <ul class="modal-features-list" id="modalFeaturesList">
+            <!-- Populated dynamically -->
+          </ul>
+
+          <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:1.5rem;" id="modalDimensions">
+            <strong>Dimensions / Spécifications :</strong> <span>Standard</span>
+          </p>
+
+          <!-- Actions -->
+          <div class="modal-actions-box">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn-discuss-whatsapp" id="modalWhatsappDirectBtn" style="font-size:1.05rem;padding:1rem 1.6rem;border-radius:var(--radius-full);">
+              <i data-lucide="message-circle" style="width:22px;height:22px;"></i>
+              <span>Discuter de cet article sur WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       COMMAND PALETTE (CTRL + K SEARCH MODAL)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="searchPaletteModal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog search-palette-dialog">
+      <div class="palette-header">
+        <i data-lucide="search" style="width:22px;height:22px;color:var(--accent-gold);"></i>
+        <input type="text" id="paletteSearchInput" class="palette-input" placeholder="Rechercher instantanément un article (ex: bureau, velours, ventilateur, valise)...">
+        <button class="modal-close-btn" id="closePaletteBtn" style="position:static;width:32px;height:32px;">
+          <i data-lucide="x" style="width:16px;height:16px;"></i>
+        </button>
+      </div>
+
+      <div class="palette-results" id="paletteResults">
+        <!-- Results rendered dynamically -->
+      </div>
+      <div class="palette-footer">
+        <span>Appuyez sur <kbd>Échap</kbd> pour fermer</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CART DRAWER
+       ========================================================================== -->
+  <div class="cart-drawer-backdrop" id="cartDrawerBackdrop" aria-hidden="true">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <div class="cart-header-title">
+          <i data-lucide="shopping-bag" style="color:var(--accent-gold);width:22px;height:22px;"></i>
+          <span>Votre Sélection (<span id="cartCountTitle">0</span>)</span>
+        </div>
+        <button class="icon-btn" id="closeCartBtn" aria-label="Fermer le panier">
+          <i data-lucide="x" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+
+      <!-- Items List -->
+      <div class="cart-items-list" id="cartItemsList">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Footer & Totals -->
+      <div class="cart-footer">
+        <div class="cart-subtotal-row">
+          <span class="subtotal-label">Sous-total :</span>
+          <span class="subtotal-amount" id="cartSubtotalAmount">0 FCFA</span>
+        </div>
+
+        <div class="cart-buttons-group">
+          <button class="btn-checkout-whatsapp" id="checkoutWhatsappBtn">
+            <i data-lucide="message-circle" style="width:20px;height:20px;"></i>
+            <span>Commander tout le Panier sur WhatsApp</span>
+          </button>
+
+          <button class="btn-proforma" id="openProformaBtn">
+            <i data-lucide="printer" style="width:18px;height:18px;"></i>
+            <span>Générer Devis Proforma (Facture Imprimable)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: FACTURE PROFORMA / DEVIS OFFICIEL
+       ========================================================================== -->
+  <div class="modal-backdrop" id="proformaModal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog" style="max-width:850px;background:#fff;color:#1e293b;">
+      <button class="modal-close-btn" id="closeProformaBtn" aria-label="Fermer le devis" style="color:#1e293b;background:#f1f5f9;">
+        <i data-lucide="x" style="width:20px;height:20px;"></i>
+      </button>
+
+      <div class="proforma-sheet">
+        <div class="proforma-header-row">
+          <div class="proforma-brand">
+            <h2>YA FALY KA</h2>
+            <p>Mobilier d'Excellence, Électroménager, Literie & Événementiel</p>
+            <p>Grand Mbao, Cité Baye Niasse (Dakar, Sénégal)</p>
+            <p>Tél / WhatsApp : +221 78 564 57 67 | contact@yafalyka-store.com</p>
+          </div>
+          <div class="proforma-meta">
+            <h3>DEVIS PROFORMA</h3>
+            <p><strong>N° :</strong> <span id="proformaNumber">YFK-2026-0042</span></p>
+            <p><strong>Date :</strong> <span id="proformaDate">19/09/2026</span></p>
+            <p><strong>Validité :</strong> 15 jours</p>
+          </div>
+        </div>
+
+        <div style="background:#f8fafc;padding:1rem;border-radius:8px;margin-bottom:1.5rem;border:1px solid #e2e8f0;">
+          <h4 style="font-size:0.9rem;margin-bottom:0.4rem;color:#0f172a;">Destinataire / Client :</h4>
+          <input type="text" id="proformaClientName" placeholder="Nom du Client ou Entreprise (Ex: Cabinet Diop / Particulier VIP)" style="width:100%;padding:0.5rem;border:1px solid #cbd5e1;border-radius:4px;font-size:0.9rem;">
+        </div>
+
+        <table class="proforma-table">
+          <thead>
+            <tr>
+              <th>Désignation Article</th>
+              <th style="text-align:center;">Qté</th>
+              <th style="text-align:right;">Prix Unitaire</th>
+              <th style="text-align:right;">Total HT</th>
+            </tr>
+          </thead>
+          <tbody id="proformaTableBody">
+            <!-- Populated by JS -->
+          </tbody>
+          <tfoot>
+            <tr class="proforma-total-row">
+              <td colspan="3" style="text-align:right;padding-top:1rem;">Net à Payer (FCFA) :</td>
+              <td style="text-align:right;padding-top:1rem;color:#b48c26;" id="proformaTotalAmount">0 FCFA</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="proforma-footer">
+          <div>
+            <p><strong>Conditions :</strong> Règlement par Wave, Orange Money ou espèces à la livraison.</p>
+            <p>Livraison rapide au départ de Grand Mbao.</p>
+          </div>
+          <div style="text-align:right;">
+            <p><strong>Cachet & Signature Magasin</strong></p>
+            <div style="margin-top:0.8rem;border-bottom:1px dashed #94a3b8;width:150px;display:inline-block;"></div>
+          </div>
+        </div>
+
+        <div class="proforma-action-buttons" style="display:flex;justify-content:flex-end;gap:1rem;margin-top:2rem;">
+          <button class="btn-primary" onclick="window.print()" style="background:#0f172a;color:#fff;">
+            <i data-lucide="printer" style="width:18px;height:18px;"></i>
+            <span>Imprimer / Exporter PDF</span>
+          </button>
+          <button class="btn-checkout-whatsapp" id="sendProformaWhatsappBtn" style="padding:0.7rem 1.4rem;">
+            <i data-lucide="send" style="width:18px;height:18px;"></i>
+            <span>Transmettre le Devis sur WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MOBILE NAVIGATION DRAWER
+       ========================================================================== -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true">
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <div class="mobile-nav-header">
+        <div class="brand-logo">
+          <div class="logo-icon-wrap" style="width:38px;height:38px;font-size:1.1rem;">YF</div>
+          <div class="brand-text-wrap">
+            <span class="brand-name" style="font-size:1.2rem;">YA FALY KA</span>
+            <span class="brand-sub" style="font-size:0.6rem;">Grand Mbao</span>
+          </div>
+        </div>
+        <button class="icon-btn" id="closeMobileNavBtn" aria-label="Fermer le menu">
+          <i data-lucide="x" style="width:20px;height:20px;"></i>
+        </button>
+      </div>
+
+      <div class="mobile-nav-body">
+        <ul class="mobile-menu-links">
+          <li><a href="#hero" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="home" style="width:18px;height:18px;"></i><span>Accueil</span></a></li>
+          <li><a href="#catalogue" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="layers" style="width:18px;height:18px;"></i><span>Rayons & Articles</span></a></li>
+          <li><a href="#delivery" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="truck" style="width:18px;height:18px;"></i><span>Calculateur Livraison</span></a></li>
+          <li><a href="#gallery" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="camera" style="width:18px;height:18px;"></i><span>Photos du Magasin</span></a></li>
+          <li><a href="#contact" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="map-pin" style="width:18px;height:18px;"></i><span>Localisation & Contact</span></a></li>
+        </ul>
+
+        <div class="mobile-drawer-footer">
+          <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20souhaite%20des%20informations." target="_blank" rel="noopener noreferrer" class="btn-checkout-whatsapp" style="width:100%;">
+            <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+            <span>Discuter sur WhatsApp (+221 78 564 57 67)</span>
+          </a>
+          <p style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:0.8rem;">
+            Grand Mbao, Cité Baye Niasse • 08h30 - 22h30 (7j/7)
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MOBILE BOTTOM APP BAR (SMARTPHONE PWA NAVIGATION)
+       ========================================================================== -->
+  <nav class="mobile-bottom-bar" aria-label="Navigation mobile rapide">
+    <a href="#hero" class="bottom-bar-item active" id="bbarHome">
+      <i data-lucide="home" style="width:20px;height:20px;"></i>
+      <span>Accueil</span>
+    </a>
+    <a href="#catalogue" class="bottom-bar-item" id="bbarShop">
+      <i data-lucide="grid" style="width:20px;height:20px;"></i>
+      <span>Rayons</span>
+    </a>
+    <button class="bottom-bar-item" id="bbarSearch" onclick="document.getElementById('openSearchPaletteBtn').click()">
+      <i data-lucide="search" style="width:20px;height:20px;"></i>
+      <span>Recherche</span>
+    </button>
+    <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20vous%20contacte%20depuis%20mon%20t%C3%A9l%C3%A9phone." target="_blank" rel="noopener noreferrer" class="bottom-bar-item bbar-whatsapp" id="bbarWhatsapp">
+      <i data-lucide="message-circle" style="width:22px;height:22px;"></i>
+      <span>WhatsApp</span>
+    </a>
+  </nav>
+
+  <!-- FLOATING CONCIERGE WHATSAPP BUTTON (BOTTOM RIGHT FOR DESKTOP) -->
+  <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20souhaite%20un%20conseil%20personnalis%C3%A9." target="_blank" rel="noopener noreferrer" class="floating-concierge-btn" id="floatingWhatsapp" title="Assistance VIP WhatsApp Direct">
+    <div class="concierge-pulse"></div>
+    <i data-lucide="message-circle" style="width:28px;height:28px;"></i>
+    <span class="concierge-tooltip">Besoin d'aide ? Écrivez-nous sur WhatsApp</span>
+  </a>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
