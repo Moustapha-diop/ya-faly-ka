@@ -246,7 +246,7 @@ class YaFalyKaApp {
   }
 
   attach3DTilt() {
-    if (this.viewMode === "list") return;
+    if (this.viewMode === "list" || window.innerWidth <= 768 || "ontouchstart" in window) return;
     const cards = document.querySelectorAll(".product-card");
     cards.forEach(card => {
       card.addEventListener("mousemove", (e) => {
@@ -1194,7 +1194,7 @@ class YaFalyKaApp {
         });
         isTicking = true;
       }
-    });
+    }, { passive: true });
   }
 
   // ==========================================
@@ -1336,7 +1336,7 @@ class YaFalyKaApp {
           navbar.classList.remove("scrolled");
         }
       }
-    });
+    }, { passive: true });
 
     // Contact Form
     const contactForm = document.getElementById("contactForm");
