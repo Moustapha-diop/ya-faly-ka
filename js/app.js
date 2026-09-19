@@ -246,7 +246,7 @@ class YaFalyKaApp {
   }
 
   attach3DTilt() {
-    if (this.viewMode === "list" || window.innerWidth <= 768 || "ontouchstart" in window) return;
+    if (this.viewMode === "list") return;
     const cards = document.querySelectorAll(".product-card");
     cards.forEach(card => {
       card.addEventListener("mousemove", (e) => {
@@ -785,21 +785,29 @@ class YaFalyKaApp {
   }
 
   openMobileMenu() {
-    const drawer = document.getElementById("mobileNavBackdrop");
+    const backdrop = document.getElementById("mobileNavBackdrop");
+    const drawer = document.getElementById("mobileNavDrawer");
+    if (backdrop) {
+      backdrop.classList.add("open");
+      backdrop.setAttribute("aria-hidden", "false");
+    }
     if (drawer) {
       drawer.classList.add("open");
-      drawer.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
     }
+    document.body.style.overflow = "hidden";
   }
 
   closeMobileMenu() {
-    const drawer = document.getElementById("mobileNavBackdrop");
+    const backdrop = document.getElementById("mobileNavBackdrop");
+    const drawer = document.getElementById("mobileNavDrawer");
+    if (backdrop) {
+      backdrop.classList.remove("open");
+      backdrop.setAttribute("aria-hidden", "true");
+    }
     if (drawer) {
       drawer.classList.remove("open");
-      drawer.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
     }
+    document.body.style.overflow = "";
   }
 
   openCart() {
@@ -1194,7 +1202,7 @@ class YaFalyKaApp {
         });
         isTicking = true;
       }
-    }, { passive: true });
+    });
   }
 
   // ==========================================
@@ -1336,7 +1344,7 @@ class YaFalyKaApp {
           navbar.classList.remove("scrolled");
         }
       }
-    }, { passive: true });
+    });
 
     // Contact Form
     const contactForm = document.getElementById("contactForm");

@@ -769,39 +769,38 @@
   <!-- ==========================================================================
        MOBILE NAVIGATION DRAWER
        ========================================================================== -->
-  <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true">
-    <div class="mobile-nav-drawer" id="mobileNavDrawer">
-      <div class="mobile-nav-header">
-        <div class="brand-logo">
-          <div class="logo-icon-wrap" style="width:38px;height:38px;font-size:1.1rem;">YF</div>
-          <div class="brand-text-wrap">
-            <span class="brand-name" style="font-size:1.2rem;">YA FALY KA</span>
-            <span class="brand-sub" style="font-size:0.6rem;">Grand Mbao</span>
-          </div>
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop" onclick="app.closeMobileMenu()" aria-hidden="true"></div>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Menu principal mobile">
+    <div class="mobile-nav-header">
+      <div class="brand-logo">
+        <div class="logo-icon-wrap" style="width:38px;height:38px;font-size:1.1rem;">YF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-name" style="font-size:1.2rem;">YA FALY KA</span>
+          <span class="brand-sub" style="font-size:0.6rem;">Grand Mbao</span>
         </div>
-        <button class="icon-btn" id="closeMobileNavBtn" aria-label="Fermer le menu">
-          <i data-lucide="x" style="width:20px;height:20px;"></i>
-        </button>
       </div>
+      <button class="icon-btn" id="closeMobileNavBtn" aria-label="Fermer le menu">
+        <i data-lucide="x" style="width:20px;height:20px;"></i>
+      </button>
+    </div>
 
-      <div class="mobile-nav-body">
-        <ul class="mobile-menu-links">
-          <li><a href="#hero" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="home" style="width:18px;height:18px;"></i><span>Accueil</span></a></li>
-          <li><a href="#catalogue" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="layers" style="width:18px;height:18px;"></i><span>Rayons & Articles</span></a></li>
-          <li><a href="#delivery" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="truck" style="width:18px;height:18px;"></i><span>Calculateur Livraison</span></a></li>
-          <li><a href="#gallery" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="camera" style="width:18px;height:18px;"></i><span>Photos du Magasin</span></a></li>
-          <li><a href="#contact" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="map-pin" style="width:18px;height:18px;"></i><span>Localisation & Contact</span></a></li>
-        </ul>
+    <div class="mobile-nav-body">
+      <ul class="mobile-menu-links">
+        <li><a href="#hero" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="home" style="width:18px;height:18px;"></i><span>Accueil</span></a></li>
+        <li><a href="#catalogue" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="layers" style="width:18px;height:18px;"></i><span>Rayons & Articles</span></a></li>
+        <li><a href="#delivery" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="truck" style="width:18px;height:18px;"></i><span>Calculateur Livraison</span></a></li>
+        <li><a href="#gallery" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="camera" style="width:18px;height:18px;"></i><span>Photos du Magasin</span></a></li>
+        <li><a href="#contact" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="map-pin" style="width:18px;height:18px;"></i><span>Localisation & Contact</span></a></li>
+      </ul>
 
-        <div class="mobile-drawer-footer">
-          <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20souhaite%20des%20informations." target="_blank" rel="noopener noreferrer" class="btn-checkout-whatsapp" style="width:100%;">
-            <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
-            <span>Discuter sur WhatsApp (+221 78 564 57 67)</span>
-          </a>
-          <p style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:0.8rem;">
-            Grand Mbao, Cité Baye Niasse • 08h30 - 22h30 (7j/7)
-          </p>
-        </div>
+      <div class="mobile-drawer-footer">
+        <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20souhaite%20des%20informations." target="_blank" rel="noopener noreferrer" class="btn-checkout-whatsapp" style="width:100%;">
+          <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+          <span>Discuter sur WhatsApp (+221 78 564 57 67)</span>
+        </a>
+        <p style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:0.8rem;">
+          Grand Mbao, Cité Baye Niasse • 08h30 - 22h30 (7j/7)
+        </p>
       </div>
     </div>
   </div>
