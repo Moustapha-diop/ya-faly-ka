@@ -231,7 +231,7 @@ class YaFalyKaApp {
             </div>
 
             <div class="card-cta-row card-cta-single">
-              <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn-discuss-whatsapp" onclick="app.shareProductToWhatsApp(event, '${p.id}')" title="Discuter immédiatement de cet article sur WhatsApp avec photo">
+              <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn-discuss-whatsapp" title="Discuter immédiatement de cet article sur WhatsApp">
                 <i data-lucide="message-circle" style="width:19px;height:19px;"></i>
                 <span>Discuter sur WhatsApp</span>
               </a>
@@ -672,7 +672,7 @@ class YaFalyKaApp {
         this.currentModalProduct.id,
         this.currentModalProduct.image
       );
-      btn.onclick = (e) => this.shareProductToWhatsApp(e, this.currentModalProduct.id);
+      btn.onclick = null;
     }
   }
 
@@ -940,15 +940,15 @@ class YaFalyKaApp {
         const cleanPath = imagePath.startsWith("/") ? imagePath.slice(1) : imagePath;
         fullUrl = `${origin}/${cleanPath.split("/").map(seg => encodeURIComponent(seg)).join("/")}`;
       }
-      photoLine = `%0A▪ *Photo de l'article :* ${encodeURIComponent(fullUrl)}%0A`;
+      photoLine = `\n▪ *Photo :* ${fullUrl}\n`;
     }
 
-    const msg = `Bonjour YA FALY KA (Grand Mbao), je suis intéressé(e) par l'article suivant vu sur votre site :%0A%0A` +
-      `▪ *Article :* ${encodeURIComponent(productName)}${refStr}${photoLine}%0A` +
-      `▪ *Disponibilité :* Magasin Grand Mbao, Cité Baye Niasse%0A%0A` +
+    const rawMsg = `Bonjour YA FALY KA (Grand Mbao), je suis intéressé(e) par l'article suivant vu sur votre site :\n\n` +
+      `▪ *Article :* ${productName}${refStr}${photoLine}\n` +
+      `▪ *Disponibilité :* Magasin Grand Mbao, Cité Baye Niasse\n\n` +
       `Pourriez-vous m'indiquer le meilleur tarif actuel et les modalités de livraison ? Merci.`;
 
-    return `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${msg}`;
+    return `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(rawMsg)}`;
   }
 
   checkoutCartOnWhatsApp() {
