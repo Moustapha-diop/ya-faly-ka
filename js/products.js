@@ -14,6 +14,7 @@ const STORE_CONFIG = {
   address: "Grand Mbao, Cite Baye Niasse (Dakar, Senegal)",
   hours: "Tous les jours : 08h30 - 22h30",
   currency: "FCFA",
+  tiktokUrl: "https://www.tiktok.com/@globaldecoameublemant?_r=1&_t=ZS-99tOu0NYh4C",
   googleMapsUrl: "https://maps.google.com/?q=Grand+Mbao+Dakar"
 };
 
