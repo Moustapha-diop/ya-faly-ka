@@ -1,3 +1,4 @@
 server.js
 .vercel
 node_modules
+*.mp4
