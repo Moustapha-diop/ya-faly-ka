@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Chevalet de Comptoir | YA FALY KA - Grand Mbao</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-dark: #b8972e;
+      --gold-gradient: linear-gradient(135deg, #fef08a 0%, #d4af37 50%, #996515 100%);
+      --bg-dark: #06090e;
+      --card-dark: #0d131f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #0f172a;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    /* Controls Bar (Visible on screen, hidden on print) */
+    .controls-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-action {
+      background: var(--gold-gradient);
+      color: #07090e;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      font-size: 1rem;
+      font-weight: 800;
+      border-radius: 9999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5);
+    }
+
+    .btn-back {
+      background: #1e293b;
+      color: #ffffff;
+      border: 1px solid #334155;
+      padding: 0.9rem 1.4rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s;
+    }
+
+    .btn-back:hover {
+      background: #334155;
+    }
+
+    /* THE PRINTABLE CHEVALET CARD (A5 Ratio: 148mm x 210mm) */
+    .chevalet-wrapper {
+      width: 100%;
+      max-width: 480px;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      border: 2px solid #e2e8f0;
+      position: relative;
+    }
+
+    /* Header Banner */
+    .chevalet-header {
+      background: linear-gradient(135deg, #07090e 0%, #111827 100%);
+      color: #ffffff;
+      padding: 2.2rem 1.5rem 1.8rem;
+      text-align: center;
+      position: relative;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .chevalet-header::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 8px solid var(--gold);
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--gold);
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
+    }
+
+    .brand-subtitle {
+      color: #94a3b8;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    /* Chevalet Body */
+    .chevalet-body {
+      padding: 2rem 1.5rem 1.8rem;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .scan-callout {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.4rem;
+      line-height: 1.25;
+    }
+
+    .scan-subtext {
+      font-size: 0.88rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+
+    /* QR Code Container */
+    .qr-frame {
+      display: inline-block;
+      padding: 1rem;
+      background: #ffffff;
+      border: 3px solid #0f172a;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin-bottom: 1.4rem;
+      position: relative;
+    }
+
+    .qr-frame::before,
+    .qr-frame::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+
+    .qr-frame::before {
+      top: -3px;
+      left: -3px;
+      border-width: 4px 0 0 4px;
+      border-top-left-radius: 20px;
+    }
+
+    .qr-frame::after {
+      bottom: -3px;
+      right: -3px;
+      border-width: 0 4px 4px 0;
+      border-bottom-right-radius: 20px;
+    }
+
+    .qr-img {
+      display: block;
+      width: 210px;
+      height: 210px;
+      object-fit: contain;
+    }
+
+    .url-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 0.5rem 1.1rem;
+      border-radius: 9999px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: #0f172a;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Highlights Chips */
+    .highlights-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .chip {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    /* Footer Info */
+    .chevalet-footer {
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      color: #475569;
+    }
+
+    .footer-phone-main {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .footer-address {
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .how-to-scan {
+      margin-top: 0.8rem;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.78rem;
+      color: #1e40af;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    /* ==========================================================================
+       PRINT STYLES - FLAWLESS A4 / A5 PRINTING
+       ========================================================================== */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        display: block !important;
+      }
+
+      .controls-bar {
+        display: none !important;
+      }
+
+      .chevalet-wrapper {
+        box-shadow: none !important;
+        border: 2px solid #000000 !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        page-break-inside: avoid !important;
+      }
+
+      .chevalet-header {
+        background: #000000 !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .brand-title {
+        background: none !important;
+        -webkit-text-fill-color: #d4af37 !important;
+        color: #d4af37 !important;
+      }
+
+      .qr-frame {
+        box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Controls (Hidden at print) -->
+  <div class="controls-bar">
+    <a href="index.html" class="btn-back">
+      ← Retour au site
+    </a>
+    <button class="btn-action" onclick="window.print()">
+      🖨️ Imprimer ce Chevalet de Comptoir
+    </button>
+  </div>
+
+  <!-- Physical Chevalet Card -->
+  <div class="chevalet-wrapper" id="chevaletCard">
+    <!-- Header -->
+    <div class="chevalet-header">
+      <div class="brand-badge">Showroom Grand Mbao</div>
+      <h1 class="brand-title">YA FALY KA</h1>
+      <p class="brand-subtitle">Mobilier d'Excellence • Électroménager • Literie</p>
+    </div>
+
+    <!-- Body with QR Code -->
+    <div class="chevalet-body">
+      <h2 class="scan-callout">Scannez & Emportez le Catalogue sur votre Téléphone !</h2>
+      <p class="scan-subtext">Accédez en direct à tous nos modèles, stocks réels et prix magasins.</p>
+
+      <!-- QR Code pointing to https://ya-faly-ka.vercel.app -->
+      <div class="qr-frame">
+        <img 
+          src="https://api.qrserver.com/v1/create-qr-code/?size=450x450&data=https%3A%2F%2Fya-faly-ka.vercel.app&format=svg" 
+          alt="QR Code Catalogue YA FALY KA" 
+          class="qr-img"
+        >
+      </div>
+
+      <div>
+        <div class="url-pill">
+          🌐 ya-faly-ka.vercel.app
+        </div>
+      </div>
+
+      <div class="highlights-list">
+        <span class="chip">🛏️ Chambres Royales</span>
+        <span class="chip">🛋️ Salons Chesterfield</span>
+        <span class="chip">📺 Smart TV 4K</span>
+        <span class="chip">❄️ Climatiseurs & Ventilateurs</span>
+        <span class="chip">🪑 Chaises & Réception</span>
+      </div>
+
+      <div class="how-to-scan">
+        <span>📸 Ouvrez l'appareil photo de votre téléphone et pointez le QR code</span>
+      </div>
+
+      <!-- Footer Contact -->
+      <div class="chevalet-footer">
+        <div class="footer-phone-main">
+          📞 78 564 57 67 • 77 651 75 58 • 77 647 12 90
+        </div>
+        <div class="footer-address">
+          📍 Magasin physique : Grand Mbao, Cité Baye Niasse (Ouvert 7j/7 • 08h30 - 22h30)
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
