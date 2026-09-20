@@ -714,7 +714,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Trust Stats Cards */
 .hero-stats-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.85rem;
   padding-top: 1.8rem;
   border-top: 1px solid var(--border-color);
@@ -787,45 +787,29 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
 }
 
-.showcase-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1.2rem;
-  background: rgba(0, 0, 0, 0.25);
-  border-bottom: 1px solid var(--border-color);
-}
-
-[data-theme="light"] .showcase-header {
-  background: rgba(255, 255, 255, 0.75);
-}
-
-.showcase-live-tag {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.78rem;
-  font-weight: 800;
-  color: var(--text-primary);
-}
-
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  background: #10b981;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #10b981;
-  animation: pulseDot 1.5s infinite;
-}
-
 .showcase-counter {
-  font-size: 0.78rem;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  font-size: 0.76rem;
   font-weight: 800;
   color: var(--accent-gold);
   font-family: var(--font-heading);
-  background: rgba(212, 175, 55, 0.12);
-  padding: 0.2rem 0.6rem;
+  background: rgba(11, 17, 26, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-gold);
+  padding: 0.22rem 0.65rem;
   border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .showcase-counter {
+  background: rgba(255, 255, 255, 0.9);
+  color: #b48c26;
+  border-color: rgba(180, 140, 38, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 /* Slide Viewport */
