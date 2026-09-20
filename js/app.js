@@ -12,6 +12,7 @@ class YaFalyKaApp {
     this.searchQuery = "";
     this.sortBy = "featured";
     this.viewMode = "grid"; // 'grid' or 'list'
+    this.displayLimit = 16; // Fast progressive rendering on mobile devices
 
     // Cart state from localStorage
     this.cart = this.loadCart();
@@ -214,9 +215,13 @@ class YaFalyKaApp {
     startAutoPlay();
   }
 
-  initLucide() {
+  initLucide(rootElement = null) {
     if (window.lucide && typeof window.lucide.createIcons === "function") {
-      window.lucide.createIcons();
+      if (rootElement) {
+        window.lucide.createIcons({ root: rootElement });
+      } else {
+        window.lucide.createIcons();
+      }
     }
   }
 
@@ -251,8 +256,11 @@ class YaFalyKaApp {
 
     const themeIcon = document.getElementById("themeIcon");
     if (themeIcon) {
-      themeIcon.setAttribute("data-lucide", theme === "light" ? "moon" : "sun");
-      this.initLucide();
+      if (theme === "light") {
+        themeIcon.innerHTML = `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
+      } else {
+        themeIcon.innerHTML = `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+      }
     }
   }
 
@@ -296,7 +304,13 @@ class YaFalyKaApp {
 
   setCategory(catId) {
     this.activeCategory = catId;
-    this.renderCategoryPills();
+    this.displayLimit = 16;
+    const container = document.getElementById("categoryPillsContainer");
+    if (container) {
+      container.querySelectorAll(".cat-pill").forEach(pill => {
+        pill.classList.toggle("active", pill.dataset.category === catId);
+      });
+    }
     this.renderProducts();
   }
 
@@ -358,17 +372,29 @@ class YaFalyKaApp {
       return;
     }
 
-    grid.innerHTML = list.map(p => {
+    // Performance pagination: initial batch of 16 cards for instant mobile load
+    const displayCount = this.displayLimit || 16;
+    const isAll = this.activeCategory === "all" && !this.searchQuery.trim();
+    const visibleList = isAll ? list.slice(0, displayCount) : list;
+    const hasMore = isAll && list.length > displayCount;
+
+    // Inline SVGs to avoid 260+ synchronous Lucide DOM queries on the main thread
+    const eyeSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`;
+    const checkSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>`;
+    const starSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+    const waSvg = `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>`;
+
+    const cardsHtml = visibleList.map(p => {
       const badgeClass = `badge-${p.badgeType || "hot"}`;
       const waUrl = this.generateWhatsAppUrl(p.name, p.id, p.image);
       return `
         <article class="product-card" data-id="${p.id}">
           <div class="card-media-wrap" onclick="app.openQuickView('${p.id}')">
-            <img src="${p.image}" alt="${p.name}" class="card-img" loading="lazy">
+            <img src="${p.image}" alt="${p.name}" class="card-img" loading="lazy" decoding="async">
             <span class="card-badge ${badgeClass}">${p.badge}</span>
             <div class="card-quick-actions">
               <button class="btn-quick-view" onclick="event.stopPropagation(); app.openQuickView('${p.id}')">
-                <i data-lucide="eye" style="width:16px;height:16px;"></i>
+                ${eyeSvg}
                 <span>Aperçu Rapide</span>
               </button>
             </div>
@@ -381,11 +407,11 @@ class YaFalyKaApp {
 
             <div class="card-meta-row">
               <span class="card-stock-pill">
-                <i data-lucide="check-circle-2" style="width:14px;height:14px;"></i>
+                ${checkSvg}
                 <span>En stock magasin</span>
               </span>
               <div class="card-rating">
-                <i data-lucide="star" style="width:14px;height:14px;fill:#fbbf24;"></i>
+                ${starSvg}
                 <span>${p.rating}</span>
                 <span style="color:var(--text-muted);font-weight:normal;">(${p.reviewsCount})</span>
               </div>
@@ -393,7 +419,7 @@ class YaFalyKaApp {
 
             <div class="card-cta-row card-cta-single">
               <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn-discuss-whatsapp" title="Discuter immédiatement de cet article sur WhatsApp">
-                <i data-lucide="message-circle" style="width:19px;height:19px;"></i>
+                ${waSvg}
                 <span>Discuter sur WhatsApp</span>
               </a>
             </div>
@@ -402,12 +428,34 @@ class YaFalyKaApp {
       `;
     }).join("");
 
-    this.initLucide();
+    let moreBtnHtml = "";
+    if (hasMore) {
+      const remaining = list.length - displayCount;
+      moreBtnHtml = `
+        <div class="load-more-container" style="grid-column: 1 / -1; text-align: center; margin: 2.5rem 0 1rem;">
+          <button class="btn-primary load-more-btn" onclick="app.loadMoreProducts()" style="padding: 0.95rem 2.4rem; font-size: 0.98rem; box-shadow: var(--shadow-gold);">
+            <span>Afficher plus d'articles (+${remaining} articles)</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:6px;"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      `;
+    }
+
+    grid.innerHTML = cardsHtml + moreBtnHtml;
     this.attach3DTilt();
+  }
+
+  loadMoreProducts() {
+    this.displayLimit = (this.displayLimit || 16) + 20;
+    this.renderProducts();
   }
 
   attach3DTilt() {
     if (this.viewMode === "list") return;
+    // Skip 3D mouse tilt on mobile devices or touch screens
+    if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+    if (window.innerWidth < 992) return;
+
     const cards = document.querySelectorAll(".product-card");
     cards.forEach(card => {
       card.addEventListener("mousemove", (e) => {
@@ -654,6 +702,8 @@ class YaFalyKaApp {
       return;
     }
 
+    const waMiniSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>`;
+
     resultsContainer.innerHTML = list.slice(0, 6).map(p => `
       <div class="palette-item" onclick="app.openQuickView('${p.id}'); app.closePaletteModal();">
         <img src="${p.image}" alt="${p.name}" class="palette-item-img">
@@ -662,7 +712,7 @@ class YaFalyKaApp {
           <small style="color:var(--text-secondary);">${p.categoryLabel}</small>
         </div>
         <span class="palette-item-action">
-          <i data-lucide="message-circle" style="width:14px;height:14px;"></i>
+          ${waMiniSvg}
           <span>Discuter</span>
         </span>
       </div>
@@ -714,7 +764,7 @@ class YaFalyKaApp {
   }
 
   // ==========================================
-  // QUICK VIEW MODAL
+  // QUICK VIEW MODAL (INSTANT 0MS RESPONSE)
   // ==========================================
   openQuickView(productId) {
     const product = this.products.find(p => p.id === productId);
@@ -723,65 +773,76 @@ class YaFalyKaApp {
     this.currentModalProduct = product;
     this.modalQty = 1;
 
-    document.getElementById("modalTitle").textContent = product.name;
-    document.getElementById("modalCategory").textContent = product.categoryLabel;
+    // 1. Instantly open modal for zero perceptible tap latency
+    const modal = document.getElementById("quickViewModal");
+    if (modal) {
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    const titleEl = document.getElementById("modalTitle");
+    if (titleEl) titleEl.textContent = product.name;
+    const catEl = document.getElementById("modalCategory");
+    if (catEl) catEl.textContent = product.categoryLabel;
 
     const priceEl = document.getElementById("modalPrice");
     if (priceEl) priceEl.style.display = "none";
     const oldPriceEl = document.getElementById("modalOldPrice");
     if (oldPriceEl) oldPriceEl.style.display = "none";
 
-    document.getElementById("modalDesc").textContent = product.description;
-    document.getElementById("modalStockText").textContent = product.stockStatus || "En stock à Grand Mbao (Livraison immédiate)";
+    const descEl = document.getElementById("modalDesc");
+    if (descEl) descEl.textContent = product.description;
+    const stockEl = document.getElementById("modalStockText");
+    if (stockEl) stockEl.textContent = product.stockStatus || "En stock à Grand Mbao (Livraison immédiate)";
+
     const dimEl = document.getElementById("modalDimensions");
     if (dimEl && dimEl.querySelector("span")) {
       dimEl.querySelector("span").textContent = product.dimensions || "Standard";
     }
 
+    const checkSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
     const featuresList = document.getElementById("modalFeaturesList");
-    featuresList.innerHTML = product.features.map(f => `
-      <li class="modal-feature-item">
-        <i data-lucide="check" style="width:16px;height:16px;"></i>
-        <span>${f}</span>
-      </li>
-    `).join("");
+    if (featuresList) {
+      featuresList.innerHTML = (product.features || []).map(f => `
+        <li class="modal-feature-item">
+          ${checkSvg}
+          <span>${f}</span>
+        </li>
+      `).join("");
+    }
 
     const mainImg = document.getElementById("modalMainImg");
-    mainImg.src = product.image;
+    if (mainImg) mainImg.src = product.image;
 
     const thumbStudioImg = document.getElementById("modalThumbStudioImg");
-    thumbStudioImg.src = product.image;
+    if (thumbStudioImg) thumbStudioImg.src = product.image;
 
     const thumbStoreImg = document.getElementById("modalThumbStoreImg");
-    thumbStoreImg.src = product.storePhoto || product.image;
+    if (thumbStoreImg) thumbStoreImg.src = product.storePhoto || product.image;
 
     const btnStudio = document.getElementById("modalThumbStudio");
     const btnStore = document.getElementById("modalThumbStore");
-    btnStudio.style.display = "flex";
-    btnStore.style.display = "flex";
-    btnStudio.classList.add("active");
-    btnStore.classList.remove("active");
-
-    btnStudio.onclick = () => {
-      mainImg.src = product.image;
+    if (btnStudio && btnStore) {
+      btnStudio.style.display = "flex";
+      btnStore.style.display = "flex";
       btnStudio.classList.add("active");
       btnStore.classList.remove("active");
-    };
 
-    btnStore.onclick = () => {
-      mainImg.src = product.storePhoto;
-      btnStore.classList.add("active");
-      btnStudio.classList.remove("active");
-    };
+      btnStudio.onclick = () => {
+        if (mainImg) mainImg.src = product.image;
+        btnStudio.classList.add("active");
+        btnStore.classList.remove("active");
+      };
+
+      btnStore.onclick = () => {
+        if (mainImg) mainImg.src = product.storePhoto || product.image;
+        btnStore.classList.add("active");
+        btnStudio.classList.remove("active");
+      };
+    }
 
     this.updateModalWhatsAppBtn();
-
-    const modal = document.getElementById("quickViewModal");
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-
-    this.initLucide();
   }
 
   closeQuickView() {
@@ -794,27 +855,42 @@ class YaFalyKaApp {
   }
 
   openQuickViewModalImageOnly(imgSrc, title, caption) {
+    const modal = document.getElementById("quickViewModal");
+    if (modal) {
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
     const mainImg = document.getElementById("modalMainImg");
-    mainImg.src = imgSrc;
-    document.getElementById("modalTitle").textContent = title;
-    document.getElementById("modalCategory").textContent = "Visite Magasin Grand Mbao";
+    if (mainImg) mainImg.src = imgSrc;
+    const titleEl = document.getElementById("modalTitle");
+    if (titleEl) titleEl.textContent = title;
+    const catEl = document.getElementById("modalCategory");
+    if (catEl) catEl.textContent = "Visite Magasin Grand Mbao";
+
     const priceEl = document.getElementById("modalPrice");
     if (priceEl) priceEl.style.display = "none";
     const oldPriceEl = document.getElementById("modalOldPrice");
     if (oldPriceEl) oldPriceEl.style.display = "none";
-    document.getElementById("modalDesc").textContent = caption;
-    document.getElementById("modalStockText").textContent = "En stock à Grand Mbao, Cité Baye Niasse";
-    document.getElementById("modalFeaturesList").innerHTML = `
-      <li class="modal-feature-item"><i data-lucide="check" style="width:16px;height:16px;"></i><span>Conseils personnalisés par notre équipe sur place</span></li>
-      <li class="modal-feature-item"><i data-lucide="check" style="width:16px;height:16px;"></i><span>Possibilité de tester et d'essayer les articles en rayon</span></li>
-    `;
-    document.getElementById("modalThumbStudio").style.display = "none";
-    document.getElementById("modalThumbStore").style.display = "none";
 
-    const modal = document.getElementById("quickViewModal");
-    modal.classList.add("open");
-    document.body.style.overflow = "hidden";
-    this.initLucide();
+    const descEl = document.getElementById("modalDesc");
+    if (descEl) descEl.textContent = caption;
+    const stockEl = document.getElementById("modalStockText");
+    if (stockEl) stockEl.textContent = "En stock à Grand Mbao, Cité Baye Niasse";
+
+    const checkSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+    const featuresList = document.getElementById("modalFeaturesList");
+    if (featuresList) {
+      featuresList.innerHTML = `
+        <li class="modal-feature-item">${checkSvg}<span>Conseils personnalisés par notre équipe sur place</span></li>
+        <li class="modal-feature-item">${checkSvg}<span>Possibilité de tester et d'essayer les articles en rayon</span></li>
+      `;
+    }
+
+    const btnStudio = document.getElementById("modalThumbStudio");
+    const btnStore = document.getElementById("modalThumbStore");
+    if (btnStudio) btnStudio.style.display = "none";
+    if (btnStore) btnStore.style.display = "none";
   }
 
   changeModalQty(delta) {
@@ -1233,17 +1309,19 @@ class YaFalyKaApp {
     const toast = document.createElement("div");
     toast.className = `toast toast-${type}`;
     
-    let iconName = "check-circle";
-    if (type === "warning") iconName = "alert-triangle";
-    if (type === "info") iconName = "info";
+    let iconSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>`;
+    if (type === "warning") {
+      iconSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`;
+    } else if (type === "info") {
+      iconSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`;
+    }
 
     toast.innerHTML = `
-      <i data-lucide="${iconName}" style="width:18px;height:18px;color:var(--accent-gold);"></i>
+      ${iconSvg}
       <span>${message}</span>
     `;
 
     container.appendChild(toast);
-    this.initLucide();
 
     setTimeout(() => {
       toast.style.opacity = "0";
