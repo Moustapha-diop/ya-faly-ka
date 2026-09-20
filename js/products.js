@@ -8,6 +8,7 @@ const STORE_CONFIG = {
   tagline: "Mobilier d'Excellence â€¢ Electromenager â€¢ Literie & Confort",
   phone: "+221 78 564 57 67",
   phoneDisplay: "+221 78 564 57 67",
+  additionalPhones: ["+221 77 651 75 58", "+221 77 647 12 90", "+221 78 107 49 67"],
   whatsappNumber: "221785645767",
   email: "contact@yafalyka-store.com",
   address: "Grand Mbao, Cite Baye Niasse (Dakar, Senegal)",

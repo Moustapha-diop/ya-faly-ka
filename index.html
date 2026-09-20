@@ -529,9 +529,18 @@
                 <i data-lucide="phone-call" style="width:24px;height:24px;"></i>
               </div>
               <div class="contact-item-text">
-                <h4>Ligne Directe & WhatsApp</h4>
-                <p id="storePhoneDisplay">+221 78 564 57 67</p>
-                <p style="font-size:0.8rem;color:var(--text-muted);">Assistance téléphonique & messages 24h/7</p>
+                <h4>Lignes Directes & WhatsApp</h4>
+                <p id="storePhoneDisplay" style="font-weight:700;font-size:1.05rem;">
+                  <a href="tel:+221785645767" style="color:var(--text-primary);text-decoration:none;">+221 78 564 57 67 <span style="font-size:0.75rem;color:var(--accent-gold);">(Showroom)</span></a>
+                </p>
+                <div style="display:flex;flex-wrap:wrap;gap:0.35rem 0.75rem;margin-top:0.35rem;font-size:0.86rem;">
+                  <a href="tel:+221776517558" style="color:var(--accent-gold);text-decoration:none;font-weight:600;">+221 77 651 75 58</a>
+                  <span style="color:var(--border-color);">•</span>
+                  <a href="tel:+221776471290" style="color:var(--accent-gold);text-decoration:none;font-weight:600;">+221 77 647 12 90</a>
+                  <span style="color:var(--border-color);">•</span>
+                  <a href="tel:+221781074967" style="color:var(--accent-gold);text-decoration:none;font-weight:600;">+221 78 107 49 67</a>
+                </div>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.3rem;">Assistance téléphonique & messages 7j/7</p>
               </div>
             </div>
 
@@ -614,6 +623,7 @@
         <!-- Col 3: Liens & Services -->
         <div class="footer-col">
           <h4>Services Interactifs</h4>
+          <ul class="footer-links">
             <li><a href="#catalogue" class="footer-link">Catalogue & Articles</a></li>
             <li><a href="#delivery" class="footer-link">Calculateur de Livraison</a></li>
             <li><a href="https://wa.me/221785645767" target="_blank" rel="noopener noreferrer" class="footer-link">Discuter sur WhatsApp (+221 78 564 57 67)</a></li>
@@ -628,16 +638,33 @@
             <span class="footer-contact-label">Adresse :</span>
             <span class="footer-contact-val">Grand Mbao, Cité Baye Niasse</span>
           </p>
-          <p class="footer-contact-item">
-            <span class="footer-contact-label">Téléphone :</span>
-            <a href="tel:+221785645767" class="footer-contact-val footer-phone-link">+221 78 564 57 67</a>
-          </p>
-          <p class="footer-contact-item">
+          <div class="footer-contact-item" style="flex-direction:column;align-items:flex-start;gap:0.45rem;">
+            <span class="footer-contact-label">Téléphones & WhatsApp :</span>
+            <div style="display:flex;flex-direction:column;gap:0.35rem;padding-left:0.2rem;">
+              <a href="tel:+221785645767" class="footer-contact-val footer-phone-link" style="display:inline-flex;align-items:center;gap:0.4rem;">
+                <i data-lucide="phone" style="width:13px;height:13px;color:var(--accent-gold);"></i>
+                <span>+221 78 564 57 67 <small style="color:var(--accent-gold);font-weight:700;">(Showroom)</small></span>
+              </a>
+              <a href="tel:+221776517558" class="footer-contact-val footer-phone-link" style="display:inline-flex;align-items:center;gap:0.4rem;">
+                <i data-lucide="phone" style="width:13px;height:13px;color:var(--accent-gold);"></i>
+                <span>+221 77 651 75 58</span>
+              </a>
+              <a href="tel:+221776471290" class="footer-contact-val footer-phone-link" style="display:inline-flex;align-items:center;gap:0.4rem;">
+                <i data-lucide="phone" style="width:13px;height:13px;color:var(--accent-gold);"></i>
+                <span>+221 77 647 12 90</span>
+              </a>
+              <a href="tel:+221781074967" class="footer-contact-val footer-phone-link" style="display:inline-flex;align-items:center;gap:0.4rem;">
+                <i data-lucide="phone" style="width:13px;height:13px;color:var(--accent-gold);"></i>
+                <span>+221 78 107 49 67</span>
+              </a>
+            </div>
+          </div>
+          <p class="footer-contact-item" style="margin-top:0.6rem;">
             <span class="footer-contact-label">Horaires :</span>
             <span class="footer-contact-val">08h30 – 22h30 (7j/7)</span>
           </p>
           <p class="footer-contact-item" style="margin-bottom:1.2rem;">
-            <span class="footer-contact-label">Moyens de Paiement :</span>
+            <span class="footer-contact-label">Paiement :</span>
             <span class="footer-contact-val">Espèces, Wave, Orange Money</span>
           </p>
           <div class="footer-trust-badge">
