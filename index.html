@@ -113,12 +113,14 @@
   <main>
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
+      <div class="hero-ambient-glow"></div>
       <div class="container hero-grid">
         <!-- Hero Text Content -->
         <div class="hero-content">
           <div class="hero-tag">
-            <i data-lucide="sparkles" style="width:16px;height:16px;"></i>
-            <span>Boutique de Référence • Grand Mbao, Cité Baye Niasse</span>
+            <span class="sparkle-icon"><i data-lucide="sparkles" style="width:16px;height:16px;"></i></span>
+            <span>Showroom Prestige • Grand Mbao, Cité Baye Niasse</span>
+            <span class="live-pill"><span class="live-pulse"></span> Ouvert 7j/7</span>
           </div>
 
           <h1 class="hero-title">
@@ -126,81 +128,190 @@
           </h1>
 
           <p class="hero-subtitle">
-            Fauteuils exécutifs de direction, chaises de réception velours & pieds dorés, ventilateurs numériques ultra-puissants, sets de valises et literie royale. Qualité certifiée et prix direct magasin.
+            Chambres à coucher royales, salons de maître, smart TV 4K, tables de réception et climatiseurs/ventilateurs haute performance. Stock 100% réel, visible en direct au magasin.
           </p>
 
-          <div class="hero-cta-group">
-            <a href="#catalogue" class="btn-primary" id="heroExploreBtn">
-              <span>Découvrir le Catalogue</span>
-              <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
+          <!-- Quick category pills -->
+          <div class="hero-quick-cats" aria-label="Accès rapide aux rayons">
+            <span class="quick-cats-label">Rayons phares :</span>
+            <a href="#catalogue" class="quick-cat-pill" data-category="chambre">
+              <i data-lucide="bed" style="width:14px;height:14px;"></i> Chambres Royales
             </a>
-
-            <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20souhaite%20des%20informations%20sur%20vos%20articles." target="_blank" rel="noopener noreferrer" class="btn-secondary" id="heroWhatsappBtn">
-              <i data-lucide="message-circle" style="color:var(--whatsapp-color);width:18px;height:18px;"></i>
-              <span>Discuter sur WhatsApp</span>
+            <a href="#catalogue" class="quick-cat-pill" data-category="salon">
+              <i data-lucide="sofa" style="width:14px;height:14px;"></i> Salons & Canapés
+            </a>
+            <a href="#catalogue" class="quick-cat-pill" data-category="electromenager">
+              <i data-lucide="tv" style="width:14px;height:14px;"></i> Smart TV & Électro
+            </a>
+            <a href="#catalogue" class="quick-cat-pill" data-category="salle_manger">
+              <i data-lucide="utensils" style="width:14px;height:14px;"></i> Tables & Traiteur
             </a>
           </div>
 
-          <!-- Hero Trust Stats -->
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-num">+10 000</span>
-              <span class="stat-label">Clients Comblés</span>
+          <div class="hero-cta-group">
+            <a href="#catalogue" class="btn-primary" id="heroExploreBtn">
+              <span>Explorer le Catalogue (66 Articles)</span>
+              <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
+            </a>
+
+            <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20souhaite%20des%20informations%20sur%20vos%20articles%20disponibles." target="_blank" rel="noopener noreferrer" class="btn-hero-whatsapp" id="heroWhatsappBtn">
+              <i data-lucide="message-circle" style="width:19px;height:19px;"></i>
+              <span>Commander sur WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Hero Trust Stats Cards -->
+          <div class="hero-stats-cards">
+            <div class="stat-card">
+              <div class="stat-card-icon"><i data-lucide="award" style="width:20px;height:20px;"></i></div>
+              <div class="stat-card-info">
+                <span class="stat-num">+10 000</span>
+                <span class="stat-label">Clients Comblés</span>
+              </div>
             </div>
-            <div class="stat-item">
-              <span class="stat-num">100%</span>
-              <span class="stat-label">Stock Réel Disponible</span>
+            <div class="stat-card">
+              <div class="stat-card-icon" style="color:#10b981;"><i data-lucide="map-pin" style="width:20px;height:20px;"></i></div>
+              <div class="stat-card-info">
+                <span class="stat-num">Showroom Réel</span>
+                <span class="stat-label">Grand Mbao 7j/7</span>
+              </div>
             </div>
-            <div class="stat-item">
-              <span class="stat-num">08h-22h30</span>
-              <span class="stat-label">Ouvert 7j / 7</span>
+            <div class="stat-card">
+              <div class="stat-card-icon" style="color:#38bdf8;"><i data-lucide="truck" style="width:20px;height:20px;"></i></div>
+              <div class="stat-card-info">
+                <span class="stat-num">1h - 24h</span>
+                <span class="stat-label">Livraison Dakar Express</span>
+              </div>
             </div>
-            <div class="stat-item">
-              <span class="stat-num">1h - 24h</span>
-              <span class="stat-label">Livraison Dakar Express</span>
+            <div class="stat-card">
+              <div class="stat-card-icon" style="color:#eab308;"><i data-lucide="shield-check" style="width:20px;height:20px;"></i></div>
+              <div class="stat-card-info">
+                <span class="stat-num">100% Neuf</span>
+                <span class="stat-label">Stock Garanti</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Hero Visual Showcase with Interactive Hotspots -->
-        <div class="hero-visual">
-          <div class="hero-image-wrapper">
-            <img src="assets/images/hero_showroom.jpg" alt="Showroom moderne YA FALY KA" class="hero-main-img" id="heroShowroomImg">
-            <div class="hero-image-overlay"></div>
+        <!-- Hero Visual Interactive Showcase -->
+        <div class="hero-showcase">
+          <!-- Glassmorphism Card -->
+          <div class="showcase-card">
+            <!-- Top Live Bar -->
+            <div class="showcase-header">
+              <div class="showcase-live-tag">
+                <span class="pulse-dot"></span>
+                <span>En direct du Showroom • Grand Mbao</span>
+              </div>
+              <div class="showcase-counter" id="showcaseCounter">1 / 5</div>
+            </div>
 
-            <!-- Interactive Hotspots on Showroom Image -->
-            <div class="hotspot hotspot-1" data-target="yfk-mob-01" title="Fauteuil de Bureau Chrome">
-              <span class="hotspot-pulse"></span>
-              <span class="hotspot-label">Siège Exécutif Chrome</span>
+            <!-- Slide Viewport -->
+            <div class="showcase-viewport" id="heroShowcaseViewport">
+              <!-- Slides -->
+              <div class="showcase-slide active" data-index="0" data-wa="Bonjour YA FALY KA, je souhaite des informations et le prix de la Suite Royale ZS-528#.">
+                <img src="assets/images/products/WhatsApp Image 2026-09-20 at 00.35.14.jpeg" alt="Suite Royale d'Apparat ZS-528#" class="showcase-img" loading="eager">
+                <div class="showcase-caption">
+                  <span class="caption-badge">👑 Pièce Maîtresse Showroom</span>
+                  <h3 class="caption-title">Suite Royale d'Apparat ZS-528#</h3>
+                  <p class="caption-sub">Grand lit double avec 2 fauteuils velours blanc & armoire galbée or</p>
+                </div>
+              </div>
+
+              <div class="showcase-slide" data-index="1" data-wa="Bonjour YA FALY KA, je souhaite des informations sur la Chambre Palais ZS-529# avec lustres en cristal.">
+                <img src="assets/images/products/WhatsApp Image 2026-09-20 at 00.35.14 (1).jpeg" alt="Chambre Palais ZS-529# avec Lustres" class="showcase-img" loading="lazy">
+                <div class="showcase-caption">
+                  <span class="caption-badge">✨ Lustres Cristal Suspendus</span>
+                  <h3 class="caption-title">Suite Parentale Palais ZS-529#</h3>
+                  <p class="caption-sub">Tête de lit avec lustres cristal et bandeaux lumineux LED</p>
+                </div>
+              </div>
+
+              <div class="showcase-slide" data-index="2" data-wa="Bonjour YA FALY KA, je souhaite des informations sur vos Salons de Luxe Chesterfield.">
+                <img src="assets/images/products/WhatsApp Image 2026-09-19 at 14.37.38.jpeg" alt="Rayon Salons de Luxe" class="showcase-img" loading="lazy">
+                <div class="showcase-caption">
+                  <span class="caption-badge">🛋️ Salons de Prestige</span>
+                  <h3 class="caption-title">Collection Salons Chesterfield & Or</h3>
+                  <p class="caption-sub">Cuir premium et assises haute résilience grand confort</p>
+                </div>
+              </div>
+
+              <div class="showcase-slide" data-index="3" data-wa="Bonjour YA FALY KA, je souhaite commander la Smart TV 55 pouces 4K Frameless.">
+                <img src="assets/images/products/WhatsApp Image 2026-09-19 at 18.15.49.jpeg" alt="Smart TV 55 Pouces 4K Frameless" class="showcase-img" loading="lazy">
+                <div class="showcase-caption">
+                  <span class="caption-badge">📺 Électronique & Multimédia</span>
+                  <h3 class="caption-title">Smart TV 55" 4K Ultra HD Frameless</h3>
+                  <p class="caption-sub">Écran sans bordure, Wi-Fi, YouTube, Netflix & TNT intégrée</p>
+                </div>
+              </div>
+
+              <div class="showcase-slide" data-index="4" data-wa="Bonjour YA FALY KA, je souhaite des informations sur la grande table pliante traiteur 180cm.">
+                <img src="assets/images/products/WhatsApp Image 2026-09-19 at 18.15.24.jpeg" alt="Grande Table Pliante Traiteur 8-10 Places" class="showcase-img" loading="lazy">
+                <div class="showcase-caption">
+                  <span class="caption-badge">🍽️ Réceptions & Cérémonies</span>
+                  <h3 class="caption-title">Grande Table Pliante Traiteur 180cm</h3>
+                  <p class="caption-sub">Format valise transportable 8-10 places HDPE haute résistance</p>
+                </div>
+              </div>
+
+              <!-- Quick WhatsApp Inquiry Overlay Button -->
+              <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20souhaite%20des%20informations%20sur%20la%20Suite%20Royale%20ZS-528%23." target="_blank" rel="noopener noreferrer" class="showcase-wa-btn" id="showcaseWaBtn" title="Discuter de cet article sur WhatsApp">
+                <i data-lucide="message-circle" style="width:16px;height:16px;"></i>
+                <span id="showcaseWaText">Discuter de cet article</span>
+              </a>
+
+              <!-- Prev / Next Navigation Arrows -->
+              <button class="showcase-nav-btn showcase-prev" id="showcasePrevBtn" aria-label="Article précédent">
+                <i data-lucide="chevron-left" style="width:20px;height:20px;"></i>
+              </button>
+              <button class="showcase-nav-btn showcase-next" id="showcaseNextBtn" aria-label="Article suivant">
+                <i data-lucide="chevron-right" style="width:20px;height:20px;"></i>
+              </button>
             </div>
-            <div class="hotspot hotspot-2" data-target="yfk-mob-02" title="Chaises Velours & Or">
-              <span class="hotspot-pulse"></span>
-              <span class="hotspot-label">Chaises Velours & Or</span>
+
+            <!-- Progress Bar -->
+            <div class="showcase-progress">
+              <div class="showcase-progress-bar" id="showcaseProgressBar"></div>
             </div>
-            <div class="hotspot hotspot-3" data-target="yfk-bag-01" title="Valises de Voyage">
-              <span class="hotspot-pulse"></span>
-              <span class="hotspot-label">Valises 360°</span>
+
+            <!-- Showcase Thumbnails / Switcher Pills -->
+            <div class="showcase-thumbs" id="showcaseThumbs">
+              <button class="showcase-thumb-btn active" data-index="0">
+                <span class="thumb-tag">👑 Royale ZS-528</span>
+              </button>
+              <button class="showcase-thumb-btn" data-index="1">
+                <span class="thumb-tag">✨ Palais ZS-529</span>
+              </button>
+              <button class="showcase-thumb-btn" data-index="2">
+                <span class="thumb-tag">🛋️ Salons Luxe</span>
+              </button>
+              <button class="showcase-thumb-btn" data-index="3">
+                <span class="thumb-tag">📺 Smart TV 55"</span>
+              </button>
+              <button class="showcase-thumb-btn" data-index="4">
+                <span class="thumb-tag">🍽️ Table Traiteur</span>
+              </button>
             </div>
           </div>
 
-          <!-- Floating Badges -->
-          <div class="floating-badge badge-top">
+          <!-- Floating Trust Glass Badges -->
+          <div class="floating-badge badge-top-right">
             <div class="floating-icon">
-              <i data-lucide="award" style="width:20px;height:20px;"></i>
+              <i data-lucide="check-circle" style="width:18px;height:18px;"></i>
             </div>
             <div class="floating-text-wrap">
-              <span class="floating-title">Qualité Magasin Certifiée</span>
-              <span class="floating-sub">Acier chromé & velours soyeux</span>
+              <span class="floating-title">100% Stock Réel Magasin</span>
+              <span class="floating-sub">Visible & disponible immédiatement</span>
             </div>
           </div>
 
-          <div class="floating-badge badge-bottom">
+          <div class="floating-badge badge-bottom-left">
             <div class="floating-icon" style="background:linear-gradient(135deg, #10b981, #059669); color:#fff;">
-              <i data-lucide="truck" style="width:20px;height:20px;"></i>
+              <i data-lucide="star" style="width:18px;height:18px;fill:#fff;"></i>
             </div>
             <div class="floating-text-wrap">
-              <span class="floating-title">Expédition Express</span>
-              <span class="floating-sub">Départ immédiat depuis Grand Mbao</span>
+              <span class="floating-title">⭐ 4.9/5 sur +10 000 Clients</span>
+              <span class="floating-sub">Livraison & montage à Dakar</span>
             </div>
           </div>
         </div>

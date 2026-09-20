@@ -41,6 +41,7 @@ class YaFalyKaApp {
 
   init() {
     this.applyTheme(this.currentTheme);
+    this.initHeroShowcase();
     this.renderCategoryPills();
     this.renderProducts();
     this.renderGallery();
@@ -51,6 +52,143 @@ class YaFalyKaApp {
     this.initScrollSpy();
     this.setupEventListeners();
     this.initLucide();
+  }
+
+  // ==========================================
+  // HERO INTERACTIVE SHOWCASE
+  // ==========================================
+  initHeroShowcase() {
+    const viewport = document.getElementById("heroShowcaseViewport");
+    if (!viewport) return;
+
+    const slides = viewport.querySelectorAll(".showcase-slide");
+    const thumbBtns = document.querySelectorAll(".showcase-thumb-btn");
+    const counter = document.getElementById("showcaseCounter");
+    const progressBar = document.getElementById("showcaseProgressBar");
+    const waBtn = document.getElementById("showcaseWaBtn");
+    const prevBtn = document.getElementById("showcasePrevBtn");
+    const nextBtn = document.getElementById("showcaseNextBtn");
+
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const slideDuration = 4500; // 4.5 seconds per slide
+    let timer = null;
+    let progressInterval = null;
+    let progressPercent = 0;
+
+    const showSlide = (index) => {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+
+      slides.forEach((s, idx) => {
+        if (idx === currentIndex) {
+          s.classList.add("active");
+        } else {
+          s.classList.remove("active");
+        }
+      });
+
+      thumbBtns.forEach((btn, idx) => {
+        if (idx === currentIndex) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+
+      if (counter) {
+        counter.textContent = `${currentIndex + 1} / ${totalSlides}`;
+      }
+
+      // Update WhatsApp message on the slide button
+      if (waBtn) {
+        const activeSlide = slides[currentIndex];
+        const waMsg = activeSlide ? activeSlide.getAttribute("data-wa") : "Bonjour YA FALY KA, je souhaite des informations sur vos articles.";
+        waBtn.href = `https://wa.me/221785645767?text=${encodeURIComponent(waMsg || "")}`;
+      }
+
+      resetProgress();
+    };
+
+    const resetProgress = () => {
+      progressPercent = 0;
+      if (progressBar) progressBar.style.width = "0%";
+    };
+
+    const startAutoPlay = () => {
+      clearInterval(timer);
+      clearInterval(progressInterval);
+      progressPercent = 0;
+
+      const stepMs = 50;
+      const increment = (stepMs / slideDuration) * 100;
+
+      progressInterval = setInterval(() => {
+        progressPercent += increment;
+        if (progressBar) progressBar.style.width = `${Math.min(progressPercent, 100)}%`;
+      }, stepMs);
+
+      timer = setInterval(() => {
+        showSlide(currentIndex + 1);
+      }, slideDuration);
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        showSlide(currentIndex - 1);
+        startAutoPlay();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        showSlide(currentIndex + 1);
+        startAutoPlay();
+      });
+    }
+
+    thumbBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetIndex = parseInt(btn.getAttribute("data-index"), 10);
+        if (!isNaN(targetIndex)) {
+          showSlide(targetIndex);
+          startAutoPlay();
+        }
+      });
+    });
+
+    // Quick category pills in hero text
+    const heroQuickPills = document.querySelectorAll(".quick-cat-pill");
+    heroQuickPills.forEach(pill => {
+      pill.addEventListener("click", (e) => {
+        e.preventDefault();
+        const cat = pill.getAttribute("data-category");
+        if (cat) {
+          this.setCategory(cat);
+          const catSection = document.getElementById("catalogue");
+          if (catSection) {
+            catSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+    });
+
+    // Pause on hover, resume on mouse leave
+    viewport.addEventListener("mouseenter", () => {
+      clearInterval(timer);
+      clearInterval(progressInterval);
+    });
+
+    viewport.addEventListener("mouseleave", () => {
+      startAutoPlay();
+    });
+
+    // Start with slide 0
+    showSlide(0);
+    startAutoPlay();
   }
 
   initLucide() {
