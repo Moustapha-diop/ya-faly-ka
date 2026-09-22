@@ -16,6 +16,7 @@ const STORE_CONFIG = {
   currency: "FCFA",
   tiktokUrl: "https://www.tiktok.com/@globaldecoameublemant?_r=1&_t=ZS-99tOu0NYh4C",
   facebookUrl: "https://www.facebook.com/share/1MhaQLFsY6/",
+  instagramUrl: "https://www.instagram.com/kayafaly?utm_source=qr&stkn=MWZiZDIxZnFheXhncQ==",
   googleMapsUrl: "https://maps.google.com/?q=Grand+Mbao+Dakar"
 };
 
