@@ -390,7 +390,7 @@ class YaFalyKaApp {
       return `
         <article class="product-card" data-id="${p.id}">
           <div class="card-media-wrap" onclick="app.openQuickView('${p.id}')">
-            <img src="${p.image}" alt="${p.name}" class="card-img" loading="lazy" decoding="async">
+            <img src="${p.image}" alt="${p.name} - Magasin YA FALY KA Grand Mbao Dakar" class="card-img" loading="lazy" decoding="async">
             <span class="card-badge ${badgeClass}">${p.badge}</span>
             <div class="card-quick-actions">
               <button class="btn-quick-view" onclick="event.stopPropagation(); app.openQuickView('${p.id}')">
