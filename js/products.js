@@ -1285,6 +1285,28 @@ const PRODUCTS = [
     ],
     dimensions: "Hauteur dossier: 95 cm | Largeur assise: 52 cm | Charge max: 160 kg",
     stockStatus: "En stock magasin • Vente à l'unité ou par lot", inStock: true
+  },
+  {
+    id: "yfk-set-valises-maxima-emeraude",
+    name: "Set de 3 Valises Rigides MAXIMA Vert Émeraude (Cabine, Moyenne & Grande)",
+    category: "rangement", categoryLabel: "Rangement & Bagagerie",
+    price: 68000, oldPrice: 85000,
+    badge: "Set de 3 Pièces", badgeType: "hot",
+    rating: 5.0, reviewsCount: 39,
+    image: IMG + "valises-maxima-vert-emeraude-set-3.jpg",
+    storePhoto: IMG + "valises-maxima-vert-emeraude-set-3.jpg",
+    shortDesc: "Set complet de 3 valises de voyage rigides MAXIMA vert émeraude métallisé avec 4 roues multidirectionnelles 360° et trolley alu.",
+    description: "Voyagez avec élégance, légèreté et sécurité avec ce lot de 3 valises de voyage MAXIMA en finition vert émeraude métallisé. Conçues en coque rigide ABS thermoformée ultra-résistante aux chocs et rayures, chaque valise est dotée de 4 doubles roues silencieuses pivotant à 360°, d'un trolley télescopique ergonomique en aluminium et d'un intérieur compartimenté avec sangles de maintien élastiques et séparateurs zippés. Comprend 1 grande valise pour long séjour, 1 valise moyenne et 1 valise cabine.",
+    features: [
+      "Lot complet de 3 valises assorties : Grande (28 pouces), Moyenne (24 pouces) et Cabine (20 pouces)",
+      "Coque rigide en ABS thermoformé haute résistance aux chocs et rayures",
+      "4 doubles roues pivotantes à 360° ultra-silencieuses et maniables",
+      "Trolley télescopique réglable en aluminium avec bouton poussoir ergonomique",
+      "Intérieur doublé avec séparateur zippé, poches filet et sangles de maintien",
+      "Serrure à combinaison intégrée et poignées de portage souples"
+    ],
+    dimensions: "Grande: 75x48x30cm (28\") | Moyenne: 65x42x26cm (24\") | Cabine: 55x36x22cm (20\")",
+    stockStatus: "En stock magasin • Lot de 3 pièces neuf scellé", inStock: true
   }
 ];
 
@@ -1295,7 +1317,7 @@ const CATEGORIES = [
   { id: "electromenager", label: "Ventilateurs & Electro", icon: "wind", count: PRODUCTS.filter(p => p.category === "electromenager").length },
   { id: "chambre", label: "Chambres & Armoires", icon: "bed", count: PRODUCTS.filter(p => p.category === "chambre").length },
   { id: "salle_manger", label: "Tables & Salle a Manger", icon: "utensils", count: PRODUCTS.filter(p => p.category === "salle_manger").length },
-  { id: "rangement", label: "Meubles TV & Rangement", icon: "tv", count: PRODUCTS.filter(p => p.category === "rangement").length },
+  { id: "rangement", label: "Rangement & Bagagerie", icon: "tv", count: PRODUCTS.filter(p => p.category === "rangement").length },
   { id: "sport", label: "Velos & Sport", icon: "bike", count: PRODUCTS.filter(p => p.category === "sport").length }
 ];
 
