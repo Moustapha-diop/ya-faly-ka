@@ -1012,6 +1012,279 @@ const PRODUCTS = [
     features: ["Écran 43 pouces (109 cm) Full HD haute luminosité", "Bordures ultra-fines 'Frameless Slim' modernes", "Smart TV connectée : Wi-Fi, Netflix, YouTube, casting smartphone", "Son stéréo Dolby Audio clair et immersif", "Pieds élégants + compatible support mural VESA"],
     dimensions: "Diagonale: 43 pouces (109cm) | Pieds et télécommande inclus",
     stockStatus: "En stock magasin • Garanti", inStock: true
+  },
+  {
+    id: "yfk-mousse-tapissier-hd",
+    name: "Plaque de Mousse Bleue Haute Densité SM Tapissier",
+    category: "chambre", categoryLabel: "Literie & Confort",
+    price: 28000, oldPrice: 35000,
+    badge: "Qualité Tapissier", badgeType: "premium",
+    rating: 4.9, reviewsCount: 32,
+    image: IMG + "WhatsApp Image 2026-09-19 at 18.06.18.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-19 at 18.06.18.jpeg",
+    shortDesc: "Plaque de mousse bleue haute densité certifiée SM Tapissier pour réfection de canapés, banquettes marocaines et matelas.",
+    description: "Mousse polyuréthane bleue haute densité de premier choix de marque SM Tapissier. Excellente tenue dans le temps, fermeté ergonomique et haute résilience. Idéale pour fabriquer ou rénover des banquettes de salon, salons marocains, fauteuils, coussins d'assise et matelas confort.",
+    features: [
+      "Mousse bleue haute densité haute résilience (HR)",
+      "Qualité professionnelle certifiée SM Tapissier",
+      "Indéformable et résistant à l'affaissement",
+      "Idéal pour salons marocains, banquettes, canapés et matelas",
+      "Découpe nette et facile selon vos dimensions"
+    ],
+    dimensions: "Format standard tapissier grande longueur | Épaisseur renforcée",
+    stockStatus: "En stock magasin • Vente à l'unité ou en gros", inStock: true
+  },
+  {
+    id: "yfk-tapis-velours-emeraude",
+    name: "Tapis de Salon Velours Émeraude & Arabesques Or",
+    category: "salon", categoryLabel: "Salons & Canapes",
+    price: 38000, oldPrice: 48000,
+    badge: "Élégance Royale", badgeType: "hot",
+    rating: 4.9, reviewsCount: 26,
+    image: IMG + "WhatsApp Image 2026-09-19 at 18.15.28.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-19 at 18.15.28.jpeg",
+    shortDesc: "Tapis luxueux en velours épais vert émeraude rehaussé de motifs géométriques et arabesques dorées.",
+    description: "Apportez une touche de prestige et de raffinement à votre salon ou chambre avec ce tapis velours vert émeraude. Ses motifs orientaux dorés et sa texture ultra-douce offrent un confort sous le pied exceptionnel tout en protégeant vos sols.",
+    features: [
+      "Velours soyeux haute densité anti-poussière",
+      "Motifs arabesques dorés et vert émeraude éclatant",
+      "Sous-face antidérapante adhérente tout type de sol",
+      "Facile d'entretien et lavable",
+      "Finition bordures soignées avec franges ouvragées"
+    ],
+    dimensions: "Dimensions salon / descente de lit | Texture velours épais",
+    stockStatus: "En stock magasin • Disponible immédiatement", inStock: true
+  },
+  {
+    id: "yfk-pack-banquet-pliant",
+    name: "Pack Table Pliante Traiteur Banquet Blanche + 6 Chaises",
+    category: "salle_manger", categoryLabel: "Tables & Salle a Manger",
+    price: 110000, oldPrice: 135000,
+    badge: "Pack Événement", badgeType: "hot",
+    rating: 5.0, reviewsCount: 41,
+    image: IMG + "WhatsApp Image 2026-09-19 at 18.15.29.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-19 at 18.15.29.jpeg",
+    shortDesc: "Grande table rectangulaire pliante banquet blanche en résine renforcée livrée avec 6 chaises monobloc.",
+    description: "L'ensemble indispensable pour vos événements, traiteurs, fêtes familiales, baptêmes ou salles de réunion. Table pliante robuste avec poignée de transport intégrée, conçue en polyéthylène haute densité résistant aux chocs et intempéries, avec piètement acier rabattable et 6 chaises blanches solides.",
+    features: [
+      "Table pliable type valise avec poignée de transport",
+      "Plateau en PEHD blanc résistant aux chocs et intempéries",
+      "Châssis en acier thermolaqué avec verrouillage de sécurité",
+      "Pack complet livré avec 6 chaises de réception assorties",
+      "Gain de place maximal une fois plié"
+    ],
+    dimensions: "Table: 180 x 75 cm dépliée | Capacité: 6 à 8 convives",
+    stockStatus: "En stock magasin • Prêt à charger ou livrer", inStock: true
+  },
+  {
+    id: "yfk-trotteur-bebe-musical",
+    name: "Trotteur Youpala Bébé Musical Multi-Activités & Éveil",
+    category: "chambre", categoryLabel: "Chambres & Armoires",
+    price: 32000, oldPrice: 40000,
+    badge: "Cadeau Bébé", badgeType: "new",
+    rating: 4.8, reviewsCount: 19,
+    image: IMG + "WhatsApp Image 2026-09-19 at 18.15.44.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-19 at 18.15.44.jpeg",
+    shortDesc: "Trotteur d'apprentissage de la marche avec console musicale interactive, jouets sensoriels et roulettes 360°.",
+    description: "Accompagnez les premiers pas de votre bébé en toute sécurité avec ce trotteur interactif vert pastel. Équipé d'un tableau d'éveil ludique (sons, lumières, petits animaux interactifs), d'une assise rembourrée lavable et d'une base anti-choc très stable avec roulettes pivotantes silencieuses.",
+    features: [
+      "Plateau ludique interactif avec musique et jouets d'éveil",
+      "Hauteur réglable sur plusieurs positions adaptées à l'enfant",
+      "Base large anti-basculement pour une sécurité optimale",
+      "Siège ergonomique matelassé et déhoussable pour lavage",
+      "Pliage compact à plat pour un rangement ou transport facile"
+    ],
+    dimensions: "Hauteur ajustable 3 niveaux | Convient dès 6 mois",
+    stockStatus: "En stock magasin • Neuf sous carton", inStock: true
+  },
+  {
+    id: "yfk-chaise-reception-velours-rouge",
+    name: "Chaise de Banquet Royale Velours Rouge Impérial & Cadre Métal",
+    category: "mobilier", categoryLabel: "Chaises & Bureaux",
+    price: 24000, oldPrice: 30000,
+    badge: "Luxe Cérémonie", badgeType: "premium",
+    rating: 4.9, reviewsCount: 35,
+    image: IMG + "WhatsApp Image 2026-09-19 at 18.15.46.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-19 at 18.15.46.jpeg",
+    shortDesc: "Chaise médaillon de réception en velours rouge matelassé grand confort avec armature métallique ultra-robuste.",
+    description: "La référence des chaises de prestige pour salles de mariage, réceptions VIP, hôtels et grandes cérémonies. Dossier médaillon ovale et assise épaisse en velours rouge scintillant, montée sur une structure en acier renforcé empilable pour un stockage rapide.",
+    features: [
+      "Assise et dossier rembourrés en mousse haute résilience",
+      "Revêtement velours rouge impérial chic et résistant",
+      "Structure en acier finition soignée anti-corrosion",
+      "Chaises empilables facilement pour un gain de place",
+      "Patins de protection antibruit pour carrelage et parquet"
+    ],
+    dimensions: "Hauteur: 93 cm | Assise: 42 x 40 cm | Charge max: 180 kg",
+    stockStatus: "Grand stock disponible • Prix dégressif en quantité", inStock: true
+  },
+  {
+    id: "yfk-grand-tapis-persan-gris-or",
+    name: "Grand Tapis Persan d'Orient Motif Rosace Gris & Or",
+    category: "salon", categoryLabel: "Salons & Canapes",
+    price: 65000, oldPrice: 85000,
+    badge: "Chef d'Œuvre", badgeType: "premium",
+    rating: 5.0, reviewsCount: 29,
+    image: IMG + "WhatsApp Image 2026-09-19 at 18.15.47.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-19 at 18.15.47.jpeg",
+    shortDesc: "Grand tapis traditionnel persan orné d'un médaillon central floral nuances de gris, ivoire et reflets dorés.",
+    description: "Une pièce maîtresse d'artisanat textile pour sublimer un grand salon ou une salle à manger raffinée. Dessin persan haute définition avec médaillon rosace central, bordures baroques fleuries et finitions à franges authentiques.",
+    features: [
+      "Tissage haute densité ultra-doux au toucher soyeux",
+      "Harmonie de couleurs tendances : gris argenté, beige crème et doré",
+      "Finitions franges artisanales aux deux extrémités",
+      "Haute résistance au passage quotidien et anti-décoloration",
+      "Convient parfaitement aux salons de maître et grandes pièces"
+    ],
+    dimensions: "Grand format salon (approx. 200 x 300 cm) | Finition frangée",
+    stockStatus: "En stock magasin • Édition limitée", inStock: true
+  },
+  {
+    id: "yfk-transat-bain-soleil-blanc",
+    name: "Transat Bain de Soleil Inclinable Résine Blanche Plein Air",
+    category: "mobilier", categoryLabel: "Chaises & Bureaux",
+    price: 38000, oldPrice: 48000,
+    badge: "Plein Air & Piscine", badgeType: "new",
+    rating: 4.8, reviewsCount: 22,
+    image: IMG + "WhatsApp Image 2026-09-19 at 18.15.48.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-19 at 18.15.48.jpeg",
+    shortDesc: "Chaise longue ergonomique en résine blanche rigide avec dossier inclinable multi-positions et aérations.",
+    description: "Profitez du soleil et de vos moments de détente avec ce transat bain de soleil ergonomique. Fabriqué en résine blanche renforcée résistante aux rayons UV, à l'eau de mer et aux intempéries. Dossier réglable sur plusieurs crans pour lire, bronzer ou faire la sieste.",
+    features: [
+      "Résine polypropylène vierge ultra-résistante anti-UV",
+      "Dossier réglable multi-crans de la position assise à couchée",
+      "Lattes d'aération ergonomiques respirantes et rafraîchissantes",
+      "Matériau 100% étanche lavable au jet d'eau",
+      "Empilable facilement pour le rangement hivernal"
+    ],
+    dimensions: "Longueur: 190 cm | Largeur: 70 cm | Pliable & empilable",
+    stockStatus: "En stock magasin • Idéal hôtels, villas et piscines", inStock: true
+  },
+  {
+    id: "yfk-armoire-metal-vitree-pro",
+    name: "Armoire Métallique Haute Bureau & Archives Vitrée (2 Portes + 2 Tiroirs)",
+    category: "rangement", categoryLabel: "Meubles TV & Rangement",
+    price: 185000, oldPrice: 225000,
+    badge: "Sécurité Pro", badgeType: "hot",
+    rating: 5.0, reviewsCount: 37,
+    image: IMG + "WhatsApp Image 2026-09-20 at 11.10.12.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-20 at 11.10.12.jpeg",
+    shortDesc: "Grande armoire professionnelle en tôle d'acier avec partie vitrine supérieure, 2 tiroirs centraux et portes pleines à serrure.",
+    description: "L'armoire de bureau par excellence pour entreprises, cabinets médicaux, études notariales et administrations. Structure blindée en tôle d'acier laminée à froid peinte à l'époxy. La partie supérieure vitrée permet de visualiser les dossiers, les deux tiroirs centraux et le compartiment bas ferment à clé pour protéger vos documents sensibles.",
+    features: [
+      "Acier laminé haute qualité avec traitement anticorrosion époxy",
+      "Partie haute : 2 portes vitrées avec étagères renforcées réglables",
+      "Partie centrale : 2 tiroirs montés sur glissières télescopiques à serrure",
+      "Partie basse : 2 portes pleines battantes fermant à double clé",
+      "Poignées chromées design et système de fermeture silencieux"
+    ],
+    dimensions: "Hauteur: 185 cm | Largeur: 90 cm | Profondeur: 40 cm",
+    stockStatus: "En stock magasin • Livré monté ou avec montage offert", inStock: true
+  },
+  {
+    id: "yfk-casier-vestiaire-15-portes",
+    name: "Casier Vestiaire Métallique Professionnel 15 Casiers Individuels",
+    category: "rangement", categoryLabel: "Meubles TV & Rangement",
+    price: 275000, oldPrice: 330000,
+    badge: "Vestiaire Pro", badgeType: "premium",
+    rating: 4.9, reviewsCount: 18,
+    image: IMG + "WhatsApp Image 2026-09-20 at 11.10.13.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-20 at 11.10.13.jpeg",
+    shortDesc: "Colonne vestiaire métallique de 15 cases individuelles sécurisées par clés avec ouïes d'aération et porte-étiquette.",
+    description: "Mobilier industriel de sécurité conçu pour le stockage des effets personnels des employés, élèves ou sportifs (usines, écoles, salles de sport, restaurants, hôpitaux). Bloc de 15 casiers indépendants avec grilles d'aération anti-odeurs, fente pour étiquette nominative et fermeture par cylindre individuel à 2 clés.",
+    features: [
+      "15 compartiments individuels spacieux et verrouillables",
+      "Structure monobloc en acier électro-zingué très résistant",
+      "Système d'aération perforé sur chaque porte anti-humidité",
+      "Chaque casier possède sa propre clé différente (passe-partout disponible)",
+      "Emplacement porte-nom / étiquette sur chaque casier"
+    ],
+    dimensions: "Hauteur: 185 cm | Largeur: 90 cm | Profondeur: 45 cm",
+    stockStatus: "En stock magasin • Idéal entreprises & collectivités", inStock: true
+  },
+  {
+    id: "yfk-fauteuil-relax-zero-gravite",
+    name: "Fauteuil Relax Pliable 'Zéro Gravité' avec Coussin Repose-Tête",
+    category: "mobilier", categoryLabel: "Chaises & Bureaux",
+    price: 45000, oldPrice: 58000,
+    badge: "Confort Absolu", badgeType: "hot",
+    rating: 4.9, reviewsCount: 34,
+    image: IMG + "WhatsApp Image 2026-09-20 at 11.12.21.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-20 at 11.12.21.jpeg",
+    shortDesc: "Fauteuil relax inclinable multipositions zéro gravité avec toile textilène respirante et coussin lombaire/cervical.",
+    description: "Le confort d'apesanteur pour relâcher instantanément toutes les tensions dorsales et cervicales. Système d'inclinaison réglable verrouillable dans n'importe quelle position, fixé par cordons élastiques haute résistance. Toile respirante antitranspirante adaptée au climat chaud de Dakar.",
+    features: [
+      "Position Zéro Gravité alignant le cœur et les jambes pour une circulation optimale",
+      "Toile Textilène indéchirable, respirante et insensible aux UV",
+      "Coussin repose-tête rembourré et réglable en hauteur inclus",
+      "Pliage instantané ultra-plat pour transport facile au coffre",
+      "Structure en tube acier renforcé supportant jusqu'à 150 kg"
+    ],
+    dimensions: "Largeur: 65 cm | Position allongée: 175 cm | Pliable à plat",
+    stockStatus: "En stock magasin • Couleurs Noir / Anthracite", inStock: true
+  },
+  {
+    id: "yfk-table-basse-ronde-092a",
+    name: "Table Basse Ronde Verre Trempé & Piétement Bois Forme 'S' (Réf. 092A)",
+    category: "salon", categoryLabel: "Salons & Canapes",
+    price: 75000, oldPrice: 95000,
+    badge: "Design Réf 092A", badgeType: "premium",
+    rating: 5.0, reviewsCount: 31,
+    image: IMG + "WhatsApp Image 2026-09-20 at 11.12.44.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-20 at 11.12.44.jpeg",
+    shortDesc: "Table basse d'appoint sculpturale avec double plateau verre trempé sécurit et pied courbé en bois forme 'S'.",
+    description: "Une création d'exception pour apporter de la modernité et du prestige à votre salon. Plateau supérieur circulaire en verre trempé biseauté avec bordure noire élégante, sublimé par un pied dynamique sculpté en bois courbé finition acajou verni et base circulaire lestée pour une stabilité parfaite.",
+    features: [
+      "Double plateau en verre trempé sécurit haute résistance aux rayures",
+      "Pied artistique courbé en bois cintré forme 'S' laqué acajou",
+      "Fixations en acier chromé poli miroir haut de gamme",
+      "Bordure de verre avec motifs design sérigraphiés",
+      "Pièce maîtresse moderne qui sublime tout salon contemporain"
+    ],
+    dimensions: "Diamètre plateau: 60 cm | Hauteur: 55 cm | Référence 092A",
+    stockStatus: "En stock magasin • Visible au showroom Grand Mbao", inStock: true
+  },
+  {
+    id: "yfk-tabouret-bar-velours-rose",
+    name: "Tabouret de Bar Velours Rose Poudré Tressé & Pied Doré Réglable",
+    category: "salle_manger", categoryLabel: "Tables & Salle a Manger",
+    price: 48000, oldPrice: 62000,
+    badge: "Tendance Déco", badgeType: "new",
+    rating: 4.9, reviewsCount: 23,
+    image: IMG + "WhatsApp Image 2026-09-20 at 11.14.05.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-20 at 11.14.05.jpeg",
+    shortDesc: "Tabouret haut de cuisine et bar avec dossier en velours tressé capitonné rose poudré et piétement en or miroir.",
+    description: "Sublimez votre îlot central, comptoir de cuisine américaine ou bar de réception avec ce magnifique tabouret chic. Son dossier enveloppant en velours rose poudré tressé à la main offre une assise douillette, tandis que son pied central doré avec repose-pieds circulaire et vérin à gaz permet d'ajuster facilement la hauteur.",
+    features: [
+      "Dossier tressé velours matelassé ultra-tendance et glamour",
+      "Piétement et repose-pieds en métal finition doré brillant",
+      "Vérin à gaz silencieux permettant un réglage en hauteur sur-mesure",
+      "Assise pivotante à 360° pour une totale liberté de mouvement",
+      "Socle évasé lesté avec joint silicone protecteur pour sols délicats"
+    ],
+    dimensions: "Hauteur d'assise réglable: 60 à 80 cm | Diamètre base: 45 cm",
+    stockStatus: "En stock magasin • Coup de cœur clients", inStock: true
+  },
+  {
+    id: "yfk-fauteuil-visiteur-cuir-noir",
+    name: "Fauteuil Visiteur Exécutif Cuir Noir & Châssis Luge Chromé",
+    category: "mobilier", categoryLabel: "Chaises & Bureaux",
+    price: 54000, oldPrice: 68000,
+    badge: "Exécutif Bureau", badgeType: "hot",
+    rating: 4.8, reviewsCount: 36,
+    image: IMG + "WhatsApp Image 2026-09-20 at 12.43.31.jpeg",
+    storePhoto: IMG + "WhatsApp Image 2026-09-20 at 12.43.31.jpeg",
+    shortDesc: "Siège de bureau visiteur et salle de réunion avec assise rembourrée en similicuir noir et structure luge en acier chromé.",
+    description: "Offrez un confort d'accueil irréprochable à vos clients, partenaires et collaborateurs dans votre bureau ou salle de conférence. Ce fauteuil exécutif combine un rembourrage épais en cuir PU micro-perforé respirant, des manchettes d'accoudoirs douces et une structure luge cantilever en acier chromé indéformable.",
+    features: [
+      "Revêtement cuir synthétique PU premium micro-perforé facile à nettoyer",
+      "Garnissage mousse haute densité grand confort même après plusieurs heures",
+      "Structure luge cantilever en acier chromé poli haute résistance",
+      "Accoudoirs profilés avec protections rembourrées",
+      "Patins antidérapants pour une stabilité sans rayer les sols"
+    ],
+    dimensions: "Hauteur dossier: 95 cm | Largeur assise: 52 cm | Charge max: 160 kg",
+    stockStatus: "En stock magasin • Vente à l'unité ou par lot", inStock: true
   }
 ];
 
@@ -1034,5 +1307,7 @@ const STORE_GALLERY = [
   { title: "Salons Gris et Or Modernes", subtitle: "Ensemble cuir gris avec liseret or pieds dores", image: IMG + "WhatsApp Image 2026-09-19 at 14.37.37 (2).jpeg", type: "real_store", caption: "Salons modernes disponibles en livraison immediate." },
   { title: "Tables Marbre Salle a Manger", subtitle: "Marbre gris 6 places ou blanc 4 places", image: IMG + "WhatsApp Image 2026-09-19 at 14.37.40 (1).jpeg", type: "real_store", caption: "Tables repas design plateau marbre et chaises cuir." },
   { title: "Stock Matelas Orthopediques", subtitle: "Grand stock toutes tailles disponible immediatement", image: IMG + "WhatsApp Image 2026-09-19 at 14.37.46 (1).jpeg", type: "real_store", caption: "Matelas orthopediques certifies en grand stock magasin." },
-  { title: "Stock Chaises Cérémonies & Réceptions", subtitle: "Piles de chaises blanches neuves en disponibilité immédiate", image: IMG + "WhatsApp Image 2026-09-19 at 18.18.39.jpeg", type: "real_store", caption: "Grand stock de chaises blanches monobloc de réception disponible en direct au magasin à Grand Mbao." }
+  { title: "Stock Chaises Cérémonies & Réceptions", subtitle: "Piles de chaises blanches neuves en disponibilité immédiate", image: IMG + "WhatsApp Image 2026-09-19 at 18.18.39.jpeg", type: "real_store", caption: "Grand stock de chaises blanches monobloc de réception disponible en direct au magasin à Grand Mbao." },
+  { title: "Table Basse Ronde Verre & Bois S (Réf. 092A)", subtitle: "Design contemporain bicolore exposé au showroom", image: IMG + "WhatsApp Image 2026-09-20 at 11.12.44.jpeg", type: "real_store", caption: "Table basse artistique avec plateau circulaire en verre sécurit et piètement galbé." },
+  { title: "Armoires & Vestiaires Métalliques", subtitle: "Armoires vitrées et casiers professionnels en tôle blindée", image: IMG + "WhatsApp Image 2026-09-20 at 11.10.12.jpeg", type: "real_store", caption: "Gamme complète d'armoires et vestiaires métalliques haute sécurité pour bureaux et entreprises." }
 ];
