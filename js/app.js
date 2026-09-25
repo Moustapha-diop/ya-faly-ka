@@ -8,6 +8,7 @@ class YaFalyKaApp {
     this.products = PRODUCTS || [];
     this.categories = CATEGORIES || [];
     this.gallery = STORE_GALLERY || [];
+    this.videos = (typeof STORE_VIDEOS !== "undefined") ? STORE_VIDEOS : [];
     this.activeCategory = "all";
     this.searchQuery = "";
     this.sortBy = "featured";
@@ -45,6 +46,7 @@ class YaFalyKaApp {
     this.initHeroShowcase();
     this.renderCategoryPills();
     this.renderProducts();
+    this.renderVideoShowroom();
     this.renderGallery();
     this.initDeliveryCalculator();
     this.initCommandPalette();
@@ -945,6 +947,86 @@ class YaFalyKaApp {
   }
 
   // ==========================================
+  // SHOWROOM VIDEO RENDERING & MODAL
+  // ==========================================
+  renderVideoShowroom() {
+    const grid = document.getElementById("videoShowroomGrid");
+    if (!grid) return;
+
+    grid.innerHTML = (this.videos || []).map((v) => `
+      <div class="video-card" onclick="app.openVideoModal('${v.id}')">
+        <div class="video-card-thumb">
+          <img src="${v.poster}" alt="${v.title}" class="video-poster-img" loading="lazy">
+          <div class="video-tag-pill">${v.badge}</div>
+          <div class="video-live-indicator">
+            <span class="live-dot"></span>
+            <span>DIRECT</span>
+          </div>
+          <div class="video-card-overlay">
+            <div class="video-play-btn-circle" title="Lire la vidéo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="video-card-meta">
+          <h4 class="video-card-title">${v.title}</h4>
+          <p class="video-card-sub">${v.subtitle}</p>
+          <div class="video-watch-now">
+            <span>Regarder la vidéo</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  openVideoModal(videoId) {
+    const video = (this.videos || []).find(v => v.id === videoId);
+    if (!video) return;
+
+    const backdrop = document.getElementById("videoModalBackdrop");
+    const player = document.getElementById("showroomVideoPlayer");
+    const titleEl = document.getElementById("videoModalTitle");
+    const subEl = document.getElementById("videoModalSubtitle");
+    const tagEl = document.getElementById("videoModalTag");
+    const waBtn = document.getElementById("videoModalWhatsAppBtn");
+
+    if (!backdrop || !player) return;
+
+    if (titleEl) titleEl.textContent = video.title;
+    if (subEl) subEl.textContent = video.subtitle;
+    if (tagEl) tagEl.textContent = video.badge + " • Grand Mbao";
+
+    if (waBtn) {
+      const msg = encodeURIComponent(`Bonjour YA FALY KA, j'ai vu la vidéo "${video.title}" sur votre site et j'aimerais avoir plus d'informations et le prix.`);
+      waBtn.href = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${msg}`;
+    }
+
+    player.src = video.src;
+    player.poster = video.poster;
+    backdrop.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    player.play().catch(() => {});
+  }
+
+  closeVideoModal() {
+    const backdrop = document.getElementById("videoModalBackdrop");
+    const player = document.getElementById("showroomVideoPlayer");
+
+    if (player) {
+      player.pause();
+      player.removeAttribute("src");
+      player.load();
+    }
+
+    if (backdrop) backdrop.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  // ==========================================
   // CART & LOCALSTORAGE
   // ==========================================
   loadCart() {
@@ -1614,6 +1696,16 @@ class YaFalyKaApp {
       });
     }
 
+    // Video Modal Close events
+    const closeVideoModalBtn = document.getElementById("closeVideoModalBtn");
+    const videoModalBackdrop = document.getElementById("videoModalBackdrop");
+    if (closeVideoModalBtn) closeVideoModalBtn.addEventListener("click", () => this.closeVideoModal());
+    if (videoModalBackdrop) {
+      videoModalBackdrop.addEventListener("click", (e) => {
+        if (e.target === videoModalBackdrop) this.closeVideoModal();
+      });
+    }
+
     // Keyboard ESC to close any open modal or drawer
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
@@ -1622,6 +1714,7 @@ class YaFalyKaApp {
         this.closeProformaModal();
         this.closePaletteModal();
         this.closeMobileMenu();
+        this.closeVideoModal();
       }
     });
   }

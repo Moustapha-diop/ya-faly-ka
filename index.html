@@ -149,6 +149,7 @@
         <ul class="nav-links">
           <li><a href="#hero" class="nav-link active">Accueil</a></li>
           <li><a href="#catalogue" class="nav-link">Rayons</a></li>
+          <li><a href="#videos" class="nav-link">Vidéos Showroom</a></li>
           <li><a href="#delivery" class="nav-link">Livraison</a></li>
           <li><a href="#contact" class="nav-link">Accès & Contact</a></li>
         </ul>
@@ -548,6 +549,24 @@
               <div class="perk-item"><i data-lucide="check" style="width:16px;height:16px;color:var(--accent-emerald);"></i><span>Aide au déchargement par notre livreur</span></div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWROOM VIDEOS SECTION (REELS / STORIES IMMERSIVES) -->
+    <section class="video-showroom-section" id="videos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge video-badge-glow">
+            <i data-lucide="video" style="width:16px;height:16px;"></i>
+            Vidéos en Direct du Magasin
+          </span>
+          <h2 class="section-title">Le Showroom en Vidéo</h2>
+          <p class="section-desc">Visitez nos rayons comme si vous étiez à Grand Mbao ! Cliquez sur une vidéo pour découvrir nos suites royales, salons et arrivages en réel.</p>
+        </div>
+
+        <div class="video-grid" id="videoShowroomGrid">
+          <!-- Populated dynamically by JS -->
         </div>
       </div>
     </section>
@@ -1008,6 +1027,7 @@
       <ul class="mobile-menu-links">
         <li><a href="#hero" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="home" style="width:18px;height:18px;"></i><span>Accueil</span></a></li>
         <li><a href="#catalogue" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="layers" style="width:18px;height:18px;"></i><span>Rayons & Articles</span></a></li>
+        <li><a href="#videos" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="video" style="width:18px;height:18px;"></i><span>Vidéos Showroom</span></a></li>
         <li><a href="#delivery" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="truck" style="width:18px;height:18px;"></i><span>Calculateur Livraison</span></a></li>
         <li><a href="#gallery" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="camera" style="width:18px;height:18px;"></i><span>Photos du Magasin</span></a></li>
         <li><a href="#contact" class="mobile-menu-link" onclick="app.closeMobileMenu()"><i data-lucide="map-pin" style="width:18px;height:18px;"></i><span>Localisation & Contact</span></a></li>
@@ -1040,10 +1060,10 @@
       <i data-lucide="grid" style="width:20px;height:20px;"></i>
       <span>Rayons</span>
     </a>
-    <button class="bottom-bar-item" id="bbarSearch" onclick="document.getElementById('openSearchPaletteBtn').click()">
-      <i data-lucide="search" style="width:20px;height:20px;"></i>
-      <span>Recherche</span>
-    </button>
+    <a href="#videos" class="bottom-bar-item" id="bbarVideos">
+      <i data-lucide="video" style="width:20px;height:20px;"></i>
+      <span>Vidéos</span>
+    </a>
     <a href="https://wa.me/221785645767?text=Bonjour%20YA%20FALY%20KA,%20je%20vous%20contacte%20depuis%20mon%20t%C3%A9l%C3%A9phone." target="_blank" rel="noopener noreferrer" class="bottom-bar-item bbar-whatsapp" id="bbarWhatsapp">
       <i data-lucide="message-circle" style="width:22px;height:22px;"></i>
       <span>WhatsApp</span>
@@ -1056,6 +1076,35 @@
     <i data-lucide="message-circle" style="width:28px;height:28px;"></i>
     <span class="concierge-tooltip">Besoin d'aide ? Écrivez-nous sur WhatsApp</span>
   </a>
+
+  <!-- IMMERSIVE VIDEO SHOWROOM MODAL -->
+  <div class="video-modal-backdrop" id="videoModalBackdrop" role="dialog" aria-modal="true" aria-label="Lecteur Vidéo Showroom">
+    <div class="video-modal-card">
+      <button class="video-modal-close" id="closeVideoModalBtn" aria-label="Fermer la vidéo">
+        <i data-lucide="x" style="width:22px;height:22px;"></i>
+      </button>
+
+      <div class="video-player-container">
+        <video id="showroomVideoPlayer" class="showroom-video-element" playsinline controls preload="none">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+      </div>
+
+      <div class="video-modal-info">
+        <div class="video-info-header">
+          <span class="video-modal-tag" id="videoModalTag">Showroom Grand Mbao</span>
+          <h3 class="video-modal-title" id="videoModalTitle">Titre de la vidéo</h3>
+          <p class="video-modal-sub" id="videoModalSubtitle">Description du mobilier présenté</p>
+        </div>
+        <div class="video-modal-actions">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-video-whatsapp" id="videoModalWhatsAppBtn">
+            <i data-lucide="message-circle" style="width:20px;height:20px;"></i>
+            <span>Commander ce modèle sur WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div class="toast-container" id="toastContainer"></div>
