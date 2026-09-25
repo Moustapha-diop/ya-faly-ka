@@ -1345,7 +1345,7 @@ const STORE_VIDEOS = [
     id: "vid-1",
     title: "Chambre Suite Royale ZS-528#",
     subtitle: "Lit capitonné or & blanc, fauteuils de maître et armoire royale",
-    src: IMG + "WhatsApp Video 2026-09-20 at 00.35.14.mp4",
+    src: IMG + "video-showroom-suite-royale-zs528.mp4",
     poster: IMG + "WhatsApp Image 2026-09-20 at 00.35.14.jpeg",
     badge: "Suite Royale"
   },
@@ -1353,7 +1353,7 @@ const STORE_VIDEOS = [
     id: "vid-2",
     title: "Chambre Palais ZS-529# & Lustres Cristal",
     subtitle: "Tête de lit lumineuse avec lustres et commode coordonnée",
-    src: IMG + "WhatsApp Video 2026-09-20 at 00.35.14 (1).mp4",
+    src: IMG + "video-showroom-chambre-palais-zs529.mp4",
     poster: IMG + "WhatsApp Image 2026-09-20 at 00.35.14 (1).jpeg",
     badge: "Chambre de Maître"
   },
@@ -1361,7 +1361,7 @@ const STORE_VIDEOS = [
     id: "vid-3",
     title: "Salons Contemporains Cuir & Velours",
     subtitle: "Visite des salons royaux, chesterfield et ensembles dorés",
-    src: IMG + "WhatsApp Video 2026-09-20 at 00.35.14 (2).mp4",
+    src: IMG + "video-showroom-salons-cuir-velours.mp4",
     poster: IMG + "WhatsApp Image 2026-09-19 at 14.37.38.jpeg",
     badge: "Salons & Canapés"
   },
@@ -1369,7 +1369,7 @@ const STORE_VIDEOS = [
     id: "vid-4",
     title: "Ensembles Literie & Confort Magasin",
     subtitle: "Détails des finitions, matelas et lits capitonnés exposés",
-    src: IMG + "WhatsApp Video 2026-09-20 at 00.35.15.mp4",
+    src: IMG + "video-showroom-literie-confort.mp4",
     poster: IMG + "WhatsApp Image 2026-09-20 at 00.35.13 (2).jpeg",
     badge: "Literie de Luxe"
   },
@@ -1377,7 +1377,7 @@ const STORE_VIDEOS = [
     id: "vid-5",
     title: "Grand Stock Matelas Orthopédiques",
     subtitle: "Mousse haute densité SM Tapissier et matelas certifiés en stock",
-    src: IMG + "WhatsApp Video 2026-09-20 at 00.35.15 (1).mp4",
+    src: IMG + "video-showroom-matelas-orthopediques.mp4",
     poster: IMG + "WhatsApp Image 2026-09-19 at 14.37.46 (1).jpeg",
     badge: "Stock Réel Matelas"
   },
@@ -1385,7 +1385,7 @@ const STORE_VIDEOS = [
     id: "vid-6",
     title: "Rayon Ventilateurs Puissants & Brumisateurs",
     subtitle: "Démonstration des modèles disponibles pour lutter contre la chaleur",
-    src: IMG + "WhatsApp Video 2026-09-20 at 00.35.15 (2).mp4",
+    src: IMG + "video-showroom-ventilateurs-electro.mp4",
     poster: IMG + "WhatsApp Image 2026-09-19 at 14.37.51.jpeg",
     badge: "Électroménager"
   },
@@ -1393,7 +1393,7 @@ const STORE_VIDEOS = [
     id: "vid-7",
     title: "Tables à Manger Marbre & Chaises de Réception",
     subtitle: "Présentation des tables de banquet et chaises événementielles",
-    src: IMG + "WhatsApp Video 2026-09-20 at 00.35.15 (3).mp4",
+    src: IMG + "video-showroom-tables-banquet.mp4",
     poster: IMG + "WhatsApp Image 2026-09-19 at 14.37.40 (1).jpeg",
     badge: "Salle à Manger"
   },
@@ -1401,7 +1401,7 @@ const STORE_VIDEOS = [
     id: "vid-8",
     title: "Visite Guidée des Allées du Showroom",
     subtitle: "Balade dans le magasin et découverte des arrivages à Grand Mbao",
-    src: IMG + "WhatsApp Video 2026-09-20 at 00.35.15 (4).mp4",
+    src: IMG + "video-showroom-allees-magasin.mp4",
     poster: IMG + "WhatsApp Image 2026-09-19 at 18.18.39.jpeg",
     badge: "Showroom Complet"
   }
