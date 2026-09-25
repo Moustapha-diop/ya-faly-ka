@@ -1343,67 +1343,67 @@ const STORE_GALLERY = [
 const STORE_VIDEOS = [
   {
     id: "vid-1",
-    title: "Chambre Suite Royale ZS-528#",
-    subtitle: "Lit capitonné or & blanc, fauteuils de maître et armoire royale",
-    src: IMG + "video-showroom-suite-royale-zs528.mp4",
-    poster: IMG + "WhatsApp Image 2026-09-20 at 00.35.14.jpeg",
-    badge: "Suite Royale"
+    title: "Chambre Luxe ZS-518# • Tête Ronde & Chevets Tactiles",
+    subtitle: "Lit capitonné tête de lit ronde velours, chevets miroirs dorés rétroéclairés LED",
+    src: IMG + "video-chambre-zs518-tete-ronde.mp4",
+    poster: IMG + "poster-chambre-zs518-tete-ronde.jpg",
+    badge: "Modèle ZS-518#"
   },
   {
     id: "vid-2",
-    title: "Chambre Palais ZS-529# & Lustres Cristal",
-    subtitle: "Tête de lit lumineuse avec lustres et commode coordonnée",
-    src: IMG + "video-showroom-chambre-palais-zs529.mp4",
-    poster: IMG + "WhatsApp Image 2026-09-20 at 00.35.14 (1).jpeg",
-    badge: "Chambre de Maître"
+    title: "Chambre Prestige ZS-519# • Lit & Banc Coffre LED",
+    subtitle: "Lit capitonné blanc & or, grand banc coffre au pied et socle rétroéclairé chaleureux",
+    src: IMG + "video-chambre-zs519-banc-led.mp4",
+    poster: IMG + "poster-chambre-zs519-banc-led.jpg",
+    badge: "Modèle ZS-519#"
   },
   {
     id: "vid-3",
-    title: "Salons Contemporains Cuir & Velours",
-    subtitle: "Visite des salons royaux, chesterfield et ensembles dorés",
-    src: IMG + "video-showroom-salons-cuir-velours.mp4",
-    poster: IMG + "WhatsApp Image 2026-09-19 at 14.37.38.jpeg",
-    badge: "Salons & Canapés"
+    title: "Chambre Majestueuse ViVi Chocolat & Or Impérial",
+    subtitle: "Lit royal avec banc demi-lune capitonné vertical, colonnes et miroirs or biseautés",
+    src: IMG + "video-chambre-royale-vivi-chocolat.mp4",
+    poster: IMG + "poster-chambre-royale-vivi-chocolat.jpg",
+    badge: "Collection ViVi"
   },
   {
     id: "vid-4",
-    title: "Ensembles Literie & Confort Magasin",
-    subtitle: "Détails des finitions, matelas et lits capitonnés exposés",
-    src: IMG + "video-showroom-literie-confort.mp4",
-    poster: IMG + "WhatsApp Image 2026-09-20 at 00.35.13 (2).jpeg",
-    badge: "Literie de Luxe"
+    title: "Chambre Palais ZS-529# • Lustres Cristal Scintillants",
+    subtitle: "Tête de lit velours capitonné gris ornée d'un médaillon or et lustres cristal suspendus",
+    src: IMG + "video-chambre-palais-zs529-lustres.mp4",
+    poster: IMG + "poster-chambre-palais-zs529-lustres.jpg",
+    badge: "Modèle ZS-529#"
   },
   {
     id: "vid-5",
-    title: "Grand Stock Matelas Orthopédiques",
-    subtitle: "Mousse haute densité SM Tapissier et matelas certifiés en stock",
-    src: IMG + "video-showroom-matelas-orthopediques.mp4",
-    poster: IMG + "WhatsApp Image 2026-09-19 at 14.37.46 (1).jpeg",
-    badge: "Stock Réel Matelas"
+    title: "Suite Royale ZS-528# • Chevets Sculptés & Finitions LED",
+    subtitle: "Gros plan sur les tables de chevet sculptées chevron or, miroirs LED et commode royale",
+    src: IMG + "video-chambre-suite-royale-zs528-chevet.mp4",
+    poster: IMG + "poster-chambre-suite-royale-zs528-chevet.jpg",
+    badge: "Finitions ZS-528#"
   },
   {
     id: "vid-6",
-    title: "Rayon Ventilateurs Puissants & Brumisateurs",
-    subtitle: "Démonstration des modèles disponibles pour lutter contre la chaleur",
-    src: IMG + "video-showroom-ventilateurs-electro.mp4",
-    poster: IMG + "WhatsApp Image 2026-09-19 at 14.37.51.jpeg",
-    badge: "Électroménager"
+    title: "Chambre ZS-519# • Tête de Lit Nid d'Abeille LED",
+    subtitle: "Capitonnage géométrique hexagonal orné d'un ruban LED doré et chevet anneaux dorés",
+    src: IMG + "video-chambre-zs519-details-lumiere.mp4",
+    poster: IMG + "poster-chambre-zs519-details-lumiere.jpg",
+    badge: "Détails ZS-519#"
   },
   {
     id: "vid-7",
-    title: "Tables à Manger Marbre & Chaises de Réception",
-    subtitle: "Présentation des tables de banquet et chaises événementielles",
-    src: IMG + "video-showroom-tables-banquet.mp4",
-    poster: IMG + "WhatsApp Image 2026-09-19 at 14.37.40 (1).jpeg",
-    badge: "Salle à Manger"
+    title: "Suite Royale ZS-528# • Grand Lit Anneaux d'Or Entrelacés",
+    subtitle: "Tête de lit blanche aux anneaux dorés entrelacés, étagères échelle et chevets galbés",
+    src: IMG + "video-chambre-suite-royale-zs528-grand-lit.mp4",
+    poster: IMG + "poster-chambre-suite-royale-zs528-grand-lit.jpg",
+    badge: "Modèle ZS-528#"
   },
   {
     id: "vid-8",
-    title: "Visite Guidée des Allées du Showroom",
-    subtitle: "Balade dans le magasin et découverte des arrivages à Grand Mbao",
-    src: IMG + "video-showroom-allees-magasin.mp4",
-    poster: IMG + "WhatsApp Image 2026-09-19 at 18.18.39.jpeg",
-    badge: "Showroom Complet"
+    title: "Chambre ZS-518# • Lit Bouclette Flottant Rétroéclairé",
+    subtitle: "Lit velours bouclette blanche, pouf assorti et effet flottant rétroéclairé LED au sol",
+    src: IMG + "video-chambre-zs518-bouclette-flottant.mp4",
+    poster: IMG + "poster-chambre-zs518-bouclette-flottant.jpg",
+    badge: "Design Flottant ZS-518#"
   }
 ];
 
