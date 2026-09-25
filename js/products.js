@@ -714,18 +714,24 @@ const PRODUCTS = [
     stockStatus: "En stock magasin", inStock: true
   },
   {
-    id: "yfk-salon-08",
-    name: "Salon Compact Cuir & Tissu Confort 2 Places",
-    category: "salon", categoryLabel: "Salons & Canapes",
-    price: 140000, oldPrice: 175000,
-    badge: "Gain de Place", badgeType: "new",
-    rating: 4.8, reviewsCount: 12,
+    id: "yfk-etagere-marbre-or-6n",
+    name: "Étagère Meuble de Rangement 6 Niveaux Marbre Blanc & Liserés Or",
+    category: "rangement", categoryLabel: "Rangement & Bagagerie",
+    price: 45000, oldPrice: 58000,
+    badge: "Gain de Place", badgeType: "hot",
+    rating: 4.8, reviewsCount: 18,
     image: IMG + "WhatsApp Image 2026-09-19 at 14.37.41.jpeg",
     storePhoto: IMG + "WhatsApp Image 2026-09-19 at 14.37.41.jpeg",
-    shortDesc: "Canapé 2 places capitonné compact, idéal pour studios, bureaux ou petits salons.",
-    description: "Canapé deux places alliant élégance et compacité. Mousse haute résilience 35 kg/m³ garantissant une assise ferme et durable. Revêtement facile d'entretien.",
-    features: ["Assise mousse haute résilience 35 kg/m³", "Structure en bois massif renforcé", "Idéal petits espaces et appartements", "Pieds design robustes"],
-    dimensions: "Longueur: 150cm | Profondeur: 85cm | Hauteur: 82cm",
+    shortDesc: "Étagère colonne multi-niveaux effet marbre blanc et bordures dorées pour chaussures, livres, sacs ou décoration.",
+    description: "Meuble colonne de rangement chic et pratique avec 6 niveaux d'exposition. Plateaux robustes finition marbre blanc veiné rehaussés de superbes bordures dorées avec fronton décoratif en vagues. Parfait comme meuble à chaussures dans une entrée, bibliothèque de salon, ou rangement de chambre.",
+    features: [
+      "6 niveaux d'étagères spacieuses pour un rangement vertical optimal",
+      "Plateaux finition marbre blanc veiné avec élégants liserés dorés",
+      "Format colonne compact idéal pour petits espaces, couloirs et entrées",
+      "Utilisation polyvalente : chaussures, sacs à main, livres, déco, serviettes",
+      "Structure stable avec patins de protection pour carrelage"
+    ],
+    dimensions: "Hauteur: 160 cm | Largeur: 60 cm | Profondeur: 28 cm",
     stockStatus: "En stock magasin", inStock: true
   },
   {
