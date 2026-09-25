@@ -1014,25 +1014,25 @@ const PRODUCTS = [
     stockStatus: "En stock magasin • Garanti", inStock: true
   },
   {
-    id: "yfk-mousse-tapissier-hd",
-    name: "Plaque de Mousse Bleue Haute Densité SM Tapissier",
+    id: "yfk-matelas-mousse-bleue-sm",
+    name: "Matelas Mousse Bleue Haute Densité SM Tapissier",
     category: "chambre", categoryLabel: "Literie & Confort",
-    price: 28000, oldPrice: 35000,
-    badge: "Qualité Tapissier", badgeType: "premium",
+    price: 35000, oldPrice: 45000,
+    badge: "Matelas Mousse Bleue", badgeType: "premium",
     rating: 4.9, reviewsCount: 32,
     image: IMG + "WhatsApp Image 2026-09-19 at 18.06.18.jpeg",
     storePhoto: IMG + "WhatsApp Image 2026-09-19 at 18.06.18.jpeg",
-    shortDesc: "Plaque de mousse bleue haute densité certifiée SM Tapissier pour réfection de canapés, banquettes marocaines et matelas.",
-    description: "Mousse polyuréthane bleue haute densité de premier choix de marque SM Tapissier. Excellente tenue dans le temps, fermeté ergonomique et haute résilience. Idéale pour fabriquer ou rénover des banquettes de salon, salons marocains, fauteuils, coussins d'assise et matelas confort.",
+    shortDesc: "Matelas en mousse bleue haute densité indéformable SM Tapissier pour un soutien ferme et un confort durable.",
+    description: "Matelas en mousse bleue haute densité de la célèbre marque SM Tapissier. Conçu pour offrir un soutien dorsal ergonomique ferme sans affaissement au fil des années. Idéal pour un sommeil réparateur au quotidien dans une chambre à coucher, lit 1 place, 2 places ou banquette.",
     features: [
-      "Mousse bleue haute densité haute résilience (HR)",
-      "Qualité professionnelle certifiée SM Tapissier",
-      "Indéformable et résistant à l'affaissement",
-      "Idéal pour salons marocains, banquettes, canapés et matelas",
-      "Découpe nette et facile selon vos dimensions"
+      "Mousse bleue haute densité ferme et indéformable",
+      "Marque de référence certifiée SM Tapissier",
+      "Soutien orthopédique pour le maintien de la colonne vertébrale",
+      "Disponible en plusieurs dimensions (1 place, 2 places) et épaisseurs",
+      "Idéal pour lits de maison, enfants, adultes et banquettes"
     ],
-    dimensions: "Format standard tapissier grande longueur | Épaisseur renforcée",
-    stockStatus: "En stock magasin • Vente à l'unité ou en gros", inStock: true
+    dimensions: "Dimensions au choix : 90x190, 140x190, 160x190 cm | Épaisseurs variées",
+    stockStatus: "En stock magasin • Toutes tailles disponibles", inStock: true
   },
   {
     id: "yfk-tapis-velours-emeraude",
