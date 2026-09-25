@@ -1085,7 +1085,10 @@
       </button>
 
       <div class="video-player-container">
-        <video id="showroomVideoPlayer" class="showroom-video-element" playsinline controls preload="none">
+        <div class="video-player-spinner" id="videoPlayerSpinner">
+          <div class="video-spinner-icon"></div>
+        </div>
+        <video id="showroomVideoPlayer" class="showroom-video-element" playsinline webkit-playsinline controls preload="metadata">
           Votre navigateur ne supporte pas la lecture vidéo.
         </video>
       </div>

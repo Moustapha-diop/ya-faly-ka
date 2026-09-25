@@ -992,6 +992,7 @@ class YaFalyKaApp {
     const subEl = document.getElementById("videoModalSubtitle");
     const tagEl = document.getElementById("videoModalTag");
     const waBtn = document.getElementById("videoModalWhatsAppBtn");
+    const spinner = document.getElementById("videoPlayerSpinner");
 
     if (!backdrop || !player) return;
 
@@ -1004,24 +1005,56 @@ class YaFalyKaApp {
       waBtn.href = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${msg}`;
     }
 
+    if (spinner) spinner.style.display = "flex";
+
+    player.pause();
     player.src = video.src;
-    player.poster = video.poster;
+    player.poster = video.poster || "";
+    player.load();
+
+    const hideSpinner = () => {
+      if (spinner) spinner.style.display = "none";
+    };
+
+    player.oncanplay = hideSpinner;
+    player.onplaying = hideSpinner;
+    player.onwaiting = () => {
+      if (spinner) spinner.style.display = "flex";
+    };
+
     backdrop.classList.add("active");
     document.body.style.overflow = "hidden";
 
-    player.play().catch(() => {});
+    // Play video smoothly; if unmuted autoplay is blocked by browser, try muted autoplay
+    const playPromise = player.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        hideSpinner();
+      }).catch(() => {
+        hideSpinner();
+        player.muted = true;
+        player.play().catch(() => {
+          player.muted = false;
+        });
+      });
+    }
   }
 
   closeVideoModal() {
     const backdrop = document.getElementById("videoModalBackdrop");
     const player = document.getElementById("showroomVideoPlayer");
+    const spinner = document.getElementById("videoPlayerSpinner");
 
     if (player) {
       player.pause();
+      player.oncanplay = null;
+      player.onplaying = null;
+      player.onwaiting = null;
       player.removeAttribute("src");
       player.load();
     }
 
+    if (spinner) spinner.style.display = "none";
     if (backdrop) backdrop.classList.remove("active");
     document.body.style.overflow = "";
   }
