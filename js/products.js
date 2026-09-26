@@ -1313,6 +1313,28 @@ const PRODUCTS = [
     ],
     dimensions: "Grande: 75x48x30cm (28\") | Moyenne: 65x42x26cm (24\") | Cabine: 55x36x22cm (20\")",
     stockStatus: "En stock magasin • Lot de 3 pièces neuf scellé", inStock: true
+  },
+  {
+    id: "yfk-armoire-vitree-bois-3p",
+    name: "Armoire Bibliothèque Vitrée 3 Portes Bois Naturel avec Tiroirs & Serrure",
+    category: "rangement", categoryLabel: "Rangement & Bagagerie",
+    price: 185000, oldPrice: 230000,
+    badge: "Nouveau Arrivage", badgeType: "hot",
+    rating: 4.9, reviewsCount: 19,
+    image: IMG + "armoire-bibliotheque-vitree-bois-3-portes.jpg",
+    storePhoto: IMG + "armoire-bibliotheque-vitree-bois-3-portes.jpg",
+    shortDesc: "Armoire bibliothèque 3 portes vitrées arquées haut, 3 tiroirs centraux et 2 portes bois bas fermant à clé.",
+    description: "Élégante et imposante armoire bibliothèque multifonction en bois finition noyer naturel chaleureux. Équipée en partie haute de 3 grandes portes vitrées cintrées offrant une vue d'ensemble sur vos livres, dossiers de bureau, trophées ou vaisselle avec étagères spacieuses. En partie basse, 3 tiroirs centraux coulissants et 2 placards latéraux en bois plein permettent de ranger vos effets personnels et documents confidentiels à l'abri des regards. Munie d'une serrure à clé sur la porte vitrée centrale et de poignées ergonomiques en métal argenté. Idéale pour bureau de direction, cabinet, séjour ou salon.",
+    features: [
+      "3 portes vitrées supérieures cintrées pour une exposition élégante",
+      "3 tiroirs coulissants centraux pratiques et spacieux",
+      "2 placards bas fermés en bois plein avec étagères intérieures",
+      "Serrure à clé sécurisée sur la vitrine centrale",
+      "Structure robuste en bois résistant et finition noyer naturel chaleureux",
+      "Poignées ergonomiques métalliques finition argentée brossée"
+    ],
+    dimensions: "Hauteur: 190 cm | Largeur: 120 cm | Profondeur: 40 cm",
+    stockStatus: "En stock magasin • Disponible à Grand Mbao", inStock: true
   }
 ];
 
@@ -1337,7 +1359,8 @@ const STORE_GALLERY = [
   { title: "Stock Matelas Orthopediques", subtitle: "Grand stock toutes tailles disponible immediatement", image: IMG + "WhatsApp Image 2026-09-19 at 14.37.46 (1).jpeg", type: "real_store", caption: "Matelas orthopediques certifies en grand stock magasin." },
   { title: "Stock Chaises Cérémonies & Réceptions", subtitle: "Piles de chaises blanches neuves en disponibilité immédiate", image: IMG + "WhatsApp Image 2026-09-19 at 18.18.39.jpeg", type: "real_store", caption: "Grand stock de chaises blanches monobloc de réception disponible en direct au magasin à Grand Mbao." },
   { title: "Table Basse Ronde Verre & Bois S (Réf. 092A)", subtitle: "Design contemporain bicolore exposé au showroom", image: IMG + "WhatsApp Image 2026-09-20 at 11.12.44.jpeg", type: "real_store", caption: "Table basse artistique avec plateau circulaire en verre sécurit et piètement galbé." },
-  { title: "Armoires & Vestiaires Métalliques", subtitle: "Armoires vitrées et casiers professionnels en tôle blindée", image: IMG + "WhatsApp Image 2026-09-20 at 11.10.12.jpeg", type: "real_store", caption: "Gamme complète d'armoires et vestiaires métalliques haute sécurité pour bureaux et entreprises." }
+  { title: "Armoires & Vestiaires Métalliques", subtitle: "Armoires vitrées et casiers professionnels en tôle blindée", image: IMG + "WhatsApp Image 2026-09-20 at 11.10.12.jpeg", type: "real_store", caption: "Gamme complète d'armoires et vestiaires métalliques haute sécurité pour bureaux et entreprises." },
+  { title: "Armoire Bibliothèque Vitrée 3 Portes Bois", subtitle: "Finition noyer naturel avec tiroirs et vitrines cintrées", image: IMG + "armoire-bibliotheque-vitree-bois-3-portes.jpg", type: "real_store", caption: "Grande armoire vitrée de bureau et salon avec serrure exposée dans notre showroom à Grand Mbao." }
 ];
 
 const STORE_VIDEOS = [
