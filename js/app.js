@@ -1005,6 +1005,8 @@ class YaFalyKaApp {
       waBtn.href = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${msg}`;
     }
 
+    trackAnalyticsEvent("video_view", { id: video.id, title: video.title });
+
     if (spinner) spinner.style.display = "flex";
 
     player.pause();
@@ -1097,6 +1099,7 @@ class YaFalyKaApp {
     this.saveCart();
     this.showToast(`« ${product.name} » ajouté au panier !`, "success");
     this.animateBadge();
+    trackAnalyticsEvent("add_to_cart", { id: product.id, name: product.name, price: product.price, qty: quantity });
   }
 
   removeFromCart(productId) {
@@ -1757,3 +1760,26 @@ class YaFalyKaApp {
 const app = new YaFalyKaApp();
 window.app = app;
 document.addEventListener("DOMContentLoaded", () => app.init());
+
+// ==========================================
+// VERCEL ANALYTICS CUSTOM EVENTS & TRACKING
+// ==========================================
+function trackAnalyticsEvent(name, data) {
+  if (typeof window.va === "function") {
+    try {
+      window.va("event", { name, data });
+    } catch (e) {}
+  }
+}
+
+// Global click tracking for all WhatsApp interactions
+document.addEventListener("click", (e) => {
+  const waLink = e.target.closest('a[href*="wa.me"]');
+  if (waLink) {
+    trackAnalyticsEvent("whatsapp_click", {
+      url: waLink.href,
+      label: (waLink.innerText || waLink.title || "WhatsApp").trim().slice(0, 60)
+    });
+  }
+});
+
